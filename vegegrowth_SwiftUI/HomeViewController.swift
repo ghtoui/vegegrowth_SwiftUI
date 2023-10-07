@@ -9,7 +9,6 @@ import UIKit
 import SwiftUI
 
 class HomeViewController: UIViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +24,6 @@ class HomeViewController: UIViewController {
         ])
     }
     
-    
     /*
      // MARK: - Navigation
      
@@ -35,5 +33,4 @@ class HomeViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    
 }

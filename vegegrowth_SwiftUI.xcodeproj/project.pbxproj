@@ -14,8 +14,6 @@
 		861CABC22AD1428A0001519C /* vegegrowth_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABC12AD1428A0001519C /* vegegrowth_SwiftUITests.swift */; };
 		861CABDE2AD153790001519C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABDD2AD153790001519C /* HomeView.swift */; };
 		861CABE12AD17A170001519C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABE02AD17A170001519C /* HomeViewController.swift */; };
-		861CABE52AD17A720001519C /* TakePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABE42AD17A720001519C /* TakePictureViewController.swift */; };
-		861CABE72AD17A7A0001519C /* ManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABE62AD17A7A0001519C /* ManageViewController.swift */; };
 		861CABE92AD17D3B0001519C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABE82AD17D3B0001519C /* Router.swift */; };
 		861CABEB2AD186510001519C /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABEA2AD186510001519C /* Navigation.swift */; };
 /* End PBXBuildFile section */
@@ -49,8 +47,6 @@
 		861CABC72AD1428A0001519C /* vegegrowth_SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vegegrowth_SwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		861CABDD2AD153790001519C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		861CABE02AD17A170001519C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		861CABE42AD17A720001519C /* TakePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePictureViewController.swift; sourceTree = "<group>"; };
-		861CABE62AD17A7A0001519C /* ManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageViewController.swift; sourceTree = "<group>"; };
 		861CABE82AD17D3B0001519C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		861CABEA2AD186510001519C /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,8 +119,6 @@
 		861CABDA2AD152CC0001519C /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				861CABE32AD17A560001519C /* Manage */,
-				861CABE22AD17A210001519C /* TakePicture */,
 				861CABDF2AD179BE0001519C /* Home */,
 				861CABE82AD17D3B0001519C /* Router.swift */,
 				861CABEA2AD186510001519C /* Navigation.swift */,
@@ -139,22 +133,6 @@
 				861CABDD2AD153790001519C /* HomeView.swift */,
 			);
 			name = Home;
-			sourceTree = "<group>";
-		};
-		861CABE22AD17A210001519C /* TakePicture */ = {
-			isa = PBXGroup;
-			children = (
-				861CABE42AD17A720001519C /* TakePictureViewController.swift */,
-			);
-			name = TakePicture;
-			sourceTree = "<group>";
-		};
-		861CABE32AD17A560001519C /* Manage */ = {
-			isa = PBXGroup;
-			children = (
-				861CABE62AD17A7A0001519C /* ManageViewController.swift */,
-			);
-			name = Manage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,12 +267,10 @@
 			files = (
 				861CABDE2AD153790001519C /* HomeView.swift in Sources */,
 				861CABAB2AD142890001519C /* AppDelegate.swift in Sources */,
-				861CABE52AD17A720001519C /* TakePictureViewController.swift in Sources */,
 				861CABEB2AD186510001519C /* Navigation.swift in Sources */,
 				861CABE92AD17D3B0001519C /* Router.swift in Sources */,
 				861CABAD2AD142890001519C /* SceneDelegate.swift in Sources */,
 				861CABE12AD17A170001519C /* HomeViewController.swift in Sources */,
-				861CABE72AD17A7A0001519C /* ManageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
