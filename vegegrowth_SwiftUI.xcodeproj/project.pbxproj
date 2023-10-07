@@ -12,10 +12,11 @@
 		861CABB22AD142890001519C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861CABB02AD142890001519C /* Main.storyboard */; };
 		861CABB42AD1428A0001519C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 861CABB32AD1428A0001519C /* Assets.xcassets */; };
 		861CABC22AD1428A0001519C /* vegegrowth_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABC12AD1428A0001519C /* vegegrowth_SwiftUITests.swift */; };
-		861CABDE2AD153790001519C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABDD2AD153790001519C /* HomeView.swift */; };
-		861CABE12AD17A170001519C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABE02AD17A170001519C /* HomeViewController.swift */; };
 		861CABE92AD17D3B0001519C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABE82AD17D3B0001519C /* Router.swift */; };
 		861CABEB2AD186510001519C /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABEA2AD186510001519C /* Navigation.swift */; };
+		863669D22AD19D0F005FEF71 /* VegeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669D12AD19D0F005FEF71 /* VegeItem.swift */; };
+		863669D42AD19D15005FEF71 /* VegeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669D32AD19D15005FEF71 /* VegeCategory.swift */; };
+		863669D62AD19D1A005FEF71 /* VegeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669D52AD19D1A005FEF71 /* VegeStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		860EE1AE2AD19C790051FEA3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		860EE1AF2AD19C790051FEA3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		861CABA72AD142890001519C /* vegegrowth_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vegegrowth_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		861CABAA2AD142890001519C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		861CABAC2AD142890001519C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,10 +48,11 @@
 		861CABBD2AD1428A0001519C /* vegegrowth_SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vegegrowth_SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		861CABC12AD1428A0001519C /* vegegrowth_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vegegrowth_SwiftUITests.swift; sourceTree = "<group>"; };
 		861CABC72AD1428A0001519C /* vegegrowth_SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vegegrowth_SwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		861CABDD2AD153790001519C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		861CABE02AD17A170001519C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		861CABE82AD17D3B0001519C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		861CABEA2AD186510001519C /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		863669D12AD19D0F005FEF71 /* VegeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegeItem.swift; sourceTree = "<group>"; };
+		863669D32AD19D15005FEF71 /* VegeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegeCategory.swift; sourceTree = "<group>"; };
+		863669D52AD19D1A005FEF71 /* VegeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegeStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		860EE1AC2AD19C790051FEA3 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				860EE1AD2AD19C790051FEA3 /* home */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		860EE1AD2AD19C790051FEA3 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				860EE1AE2AD19C790051FEA3 /* HomeView.swift */,
+				860EE1AF2AD19C790051FEA3 /* HomeViewController.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		860EE1B22AD19C790051FEA3 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				863669D12AD19D0F005FEF71 /* VegeItem.swift */,
+				863669D32AD19D15005FEF71 /* VegeCategory.swift */,
+				863669D52AD19D1A005FEF71 /* VegeStatus.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		861CAB9E2AD142890001519C = {
 			isa = PBXGroup;
 			children = (
@@ -98,9 +129,12 @@
 		861CABA92AD142890001519C /* vegegrowth_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				861CABE82AD17D3B0001519C /* Router.swift */,
+				861CABEA2AD186510001519C /* Navigation.swift */,
 				861CABAA2AD142890001519C /* AppDelegate.swift */,
 				861CABAC2AD142890001519C /* SceneDelegate.swift */,
-				861CABDA2AD152CC0001519C /* UI */,
+				860EE1B22AD19C790051FEA3 /* models */,
+				860EE1AC2AD19C790051FEA3 /* ui */,
 				861CABB02AD142890001519C /* Main.storyboard */,
 				861CABB32AD1428A0001519C /* Assets.xcassets */,
 				861CABB82AD1428A0001519C /* Info.plist */,
@@ -114,25 +148,6 @@
 				861CABC12AD1428A0001519C /* vegegrowth_SwiftUITests.swift */,
 			);
 			path = vegegrowth_SwiftUITests;
-			sourceTree = "<group>";
-		};
-		861CABDA2AD152CC0001519C /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				861CABDF2AD179BE0001519C /* Home */,
-				861CABE82AD17D3B0001519C /* Router.swift */,
-				861CABEA2AD186510001519C /* Navigation.swift */,
-			);
-			name = UI;
-			sourceTree = "<group>";
-		};
-		861CABDF2AD179BE0001519C /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				861CABE02AD17A170001519C /* HomeViewController.swift */,
-				861CABDD2AD153790001519C /* HomeView.swift */,
-			);
-			name = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,12 +280,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				861CABDE2AD153790001519C /* HomeView.swift in Sources */,
+				863669D22AD19D0F005FEF71 /* VegeItem.swift in Sources */,
 				861CABAB2AD142890001519C /* AppDelegate.swift in Sources */,
 				861CABEB2AD186510001519C /* Navigation.swift in Sources */,
 				861CABE92AD17D3B0001519C /* Router.swift in Sources */,
+				863669D42AD19D15005FEF71 /* VegeCategory.swift in Sources */,
+				863669D62AD19D1A005FEF71 /* VegeStatus.swift in Sources */,
 				861CABAD2AD142890001519C /* SceneDelegate.swift in Sources */,
-				861CABE12AD17A170001519C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
