@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		861CABAB2AD142890001519C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABAA2AD142890001519C /* AppDelegate.swift */; };
 		861CABAD2AD142890001519C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABAC2AD142890001519C /* SceneDelegate.swift */; };
-		861CABAF2AD142890001519C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABAE2AD142890001519C /* ViewController.swift */; };
 		861CABB22AD142890001519C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861CABB02AD142890001519C /* Main.storyboard */; };
 		861CABB42AD1428A0001519C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 861CABB32AD1428A0001519C /* Assets.xcassets */; };
 		861CABB72AD1428A0001519C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861CABB52AD1428A0001519C /* LaunchScreen.storyboard */; };
@@ -37,7 +36,6 @@
 		861CABA72AD142890001519C /* vegegrowth_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vegegrowth_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		861CABAA2AD142890001519C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		861CABAC2AD142890001519C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		861CABAE2AD142890001519C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		861CABB12AD142890001519C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		861CABB32AD1428A0001519C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		861CABB62AD1428A0001519C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,7 +94,7 @@
 			children = (
 				861CABAA2AD142890001519C /* AppDelegate.swift */,
 				861CABAC2AD142890001519C /* SceneDelegate.swift */,
-				861CABAE2AD142890001519C /* ViewController.swift */,
+				861CABDA2AD152CC0001519C /* UI */,
 				861CABB02AD142890001519C /* Main.storyboard */,
 				861CABB32AD1428A0001519C /* Assets.xcassets */,
 				861CABB52AD1428A0001519C /* LaunchScreen.storyboard */,
@@ -111,6 +109,13 @@
 				861CABC12AD1428A0001519C /* vegegrowth_SwiftUITests.swift */,
 			);
 			path = vegegrowth_SwiftUITests;
+			sourceTree = "<group>";
+		};
+		861CABDA2AD152CC0001519C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,7 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				861CABAF2AD142890001519C /* ViewController.swift in Sources */,
 				861CABAB2AD142890001519C /* AppDelegate.swift in Sources */,
 				861CABAD2AD142890001519C /* SceneDelegate.swift in Sources */,
 			);
@@ -424,6 +428,7 @@
 				DEVELOPMENT_TEAM = KYYQD4R3RH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = vegegrowth_SwiftUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "野菜の成長管理";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -452,6 +457,7 @@
 				DEVELOPMENT_TEAM = KYYQD4R3RH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = vegegrowth_SwiftUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "野菜の成長管理";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
