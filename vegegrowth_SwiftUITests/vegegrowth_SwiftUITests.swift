@@ -8,7 +8,7 @@
 import XCTest
 @testable import vegegrowth_SwiftUI
 
-final class vegegrowth_SwiftUITests: XCTestCase {
+final class vegegrowthSwiftUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -32,5 +32,4 @@ final class vegegrowth_SwiftUITests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }
