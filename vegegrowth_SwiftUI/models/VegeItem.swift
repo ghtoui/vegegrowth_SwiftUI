@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct VegeItem {
+struct VegeItem: Identifiable {
+    var id = UUID()
     let name: String
     let uuid: String
     let category: VegeCategory

@@ -10,8 +10,6 @@ import Foundation
 
 enum ScreenRoute {
     case home
-    case takePicture
-    case manage
 }
 
 extension ScreenRoute {
@@ -19,14 +17,6 @@ extension ScreenRoute {
         switch self {
         case .home:
             let vc = HomeViewController()
-            return vc
-            
-        case .takePicture:
-            let vc = TakePictureViewController()
-            return vc
-            
-        case .manage:
-            let vc = ManageViewController()
             return vc
         }
     }

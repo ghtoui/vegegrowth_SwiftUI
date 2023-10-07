@@ -17,6 +17,9 @@
 		863669D22AD19D0F005FEF71 /* VegeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669D12AD19D0F005FEF71 /* VegeItem.swift */; };
 		863669D42AD19D15005FEF71 /* VegeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669D32AD19D15005FEF71 /* VegeCategory.swift */; };
 		863669D62AD19D1A005FEF71 /* VegeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669D52AD19D1A005FEF71 /* VegeStatus.swift */; };
+		863669D82AD1A20B005FEF71 /* VegeItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669D72AD1A20B005FEF71 /* VegeItemList.swift */; };
+		863669DA2AD1A473005FEF71 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669D92AD1A473005FEF71 /* HomeViewController.swift */; };
+		863669DC2AD1A48B005FEF71 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669DB2AD1A48B005FEF71 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		860EE1AE2AD19C790051FEA3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		860EE1AF2AD19C790051FEA3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		861CABA72AD142890001519C /* vegegrowth_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vegegrowth_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		861CABAA2AD142890001519C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		861CABAC2AD142890001519C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +54,9 @@
 		863669D12AD19D0F005FEF71 /* VegeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegeItem.swift; sourceTree = "<group>"; };
 		863669D32AD19D15005FEF71 /* VegeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegeCategory.swift; sourceTree = "<group>"; };
 		863669D52AD19D1A005FEF71 /* VegeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegeStatus.swift; sourceTree = "<group>"; };
+		863669D72AD1A20B005FEF71 /* VegeItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegeItemList.swift; sourceTree = "<group>"; };
+		863669D92AD1A473005FEF71 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		863669DB2AD1A48B005FEF71 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +95,8 @@
 		860EE1AD2AD19C790051FEA3 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				860EE1AE2AD19C790051FEA3 /* HomeView.swift */,
-				860EE1AF2AD19C790051FEA3 /* HomeViewController.swift */,
+				863669D92AD1A473005FEF71 /* HomeViewController.swift */,
+				863669DB2AD1A48B005FEF71 /* HomeView.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -103,6 +107,7 @@
 				863669D12AD19D0F005FEF71 /* VegeItem.swift */,
 				863669D32AD19D15005FEF71 /* VegeCategory.swift */,
 				863669D52AD19D1A005FEF71 /* VegeStatus.swift */,
+				863669D72AD1A20B005FEF71 /* VegeItemList.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -283,10 +288,13 @@
 				863669D22AD19D0F005FEF71 /* VegeItem.swift in Sources */,
 				861CABAB2AD142890001519C /* AppDelegate.swift in Sources */,
 				861CABEB2AD186510001519C /* Navigation.swift in Sources */,
+				863669DC2AD1A48B005FEF71 /* HomeView.swift in Sources */,
 				861CABE92AD17D3B0001519C /* Router.swift in Sources */,
 				863669D42AD19D15005FEF71 /* VegeCategory.swift in Sources */,
+				863669DA2AD1A473005FEF71 /* HomeViewController.swift in Sources */,
 				863669D62AD19D1A005FEF71 /* VegeStatus.swift in Sources */,
 				861CABAD2AD142890001519C /* SceneDelegate.swift in Sources */,
+				863669D82AD1A20B005FEF71 /* VegeItemList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
