@@ -4,6 +4,7 @@ on:
     paths:
       - '.github/workflows/github-actions.yml'
       - '.github-actions.yml'
+      - '.swiftlint.yml'
       - '**/*.swift'
 jobs:
   Setup:
