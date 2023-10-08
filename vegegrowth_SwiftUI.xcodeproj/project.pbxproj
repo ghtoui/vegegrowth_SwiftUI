@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		861693222AD258640078DF61 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861693212AD258640078DF61 /* Assets.swift */; };
+		861693252AD258C40078DF61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 861693242AD258C40078DF61 /* Localizable.strings */; };
+		8616932D2AD259BC0078DF61 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8616932C2AD259BC0078DF61 /* Strings.swift */; };
 		861CABAB2AD142890001519C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABAA2AD142890001519C /* AppDelegate.swift */; };
 		861CABAD2AD142890001519C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABAC2AD142890001519C /* SceneDelegate.swift */; };
 		861CABB22AD142890001519C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861CABB02AD142890001519C /* Main.storyboard */; };
@@ -20,6 +23,7 @@
 		863669D82AD1A20B005FEF71 /* VegeItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669D72AD1A20B005FEF71 /* VegeItemList.swift */; };
 		863669DA2AD1A473005FEF71 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669D92AD1A473005FEF71 /* HomeViewController.swift */; };
 		863669DC2AD1A48B005FEF71 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669DB2AD1A48B005FEF71 /* HomeView.swift */; };
+		863669DE2AD244FD005FEF71 /* VegeSortStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669DD2AD244FD005FEF71 /* VegeSortStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		861693212AD258640078DF61 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		861693242AD258C40078DF61 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		8616932C2AD259BC0078DF61 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		861CABA72AD142890001519C /* vegegrowth_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vegegrowth_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		861CABAA2AD142890001519C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		861CABAC2AD142890001519C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +64,7 @@
 		863669D72AD1A20B005FEF71 /* VegeItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegeItemList.swift; sourceTree = "<group>"; };
 		863669D92AD1A473005FEF71 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		863669DB2AD1A48B005FEF71 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		863669DD2AD244FD005FEF71 /* VegeSortStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegeSortStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +116,26 @@
 				863669D32AD19D15005FEF71 /* VegeCategory.swift */,
 				863669D52AD19D1A005FEF71 /* VegeStatus.swift */,
 				863669D72AD1A20B005FEF71 /* VegeItemList.swift */,
+				863669DD2AD244FD005FEF71 /* VegeSortStatus.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		861693202AD258640078DF61 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				8616932C2AD259BC0078DF61 /* Strings.swift */,
+				861693212AD258640078DF61 /* Assets.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		861693232AD258930078DF61 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				861693242AD258C40078DF61 /* Localizable.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		861CAB9E2AD142890001519C = {
@@ -134,6 +160,8 @@
 		861CABA92AD142890001519C /* vegegrowth_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				861693232AD258930078DF61 /* Resources */,
+				861693202AD258640078DF61 /* Generated */,
 				861CABE82AD17D3B0001519C /* Router.swift */,
 				861CABEA2AD186510001519C /* Navigation.swift */,
 				861CABAA2AD142890001519C /* AppDelegate.swift */,
@@ -171,6 +199,8 @@
 			dependencies = (
 			);
 			name = vegegrowth_SwiftUI;
+			packageProductDependencies = (
+			);
 			productName = vegegrowth_SwiftUI;
 			productReference = 861CABA72AD142890001519C /* vegegrowth_SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -243,6 +273,8 @@
 				Base,
 			);
 			mainGroup = 861CAB9E2AD142890001519C;
+			packageReferences = (
+			);
 			productRefGroup = 861CABA82AD142890001519C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				861CABB42AD1428A0001519C /* Assets.xcassets in Resources */,
+				861693252AD258C40078DF61 /* Localizable.strings in Resources */,
 				861CABB22AD142890001519C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,10 +320,13 @@
 			files = (
 				863669D22AD19D0F005FEF71 /* VegeItem.swift in Sources */,
 				861CABAB2AD142890001519C /* AppDelegate.swift in Sources */,
+				861693222AD258640078DF61 /* Assets.swift in Sources */,
 				861CABEB2AD186510001519C /* Navigation.swift in Sources */,
 				863669DC2AD1A48B005FEF71 /* HomeView.swift in Sources */,
 				861CABE92AD17D3B0001519C /* Router.swift in Sources */,
 				863669D42AD19D15005FEF71 /* VegeCategory.swift in Sources */,
+				8616932D2AD259BC0078DF61 /* Strings.swift in Sources */,
+				863669DE2AD244FD005FEF71 /* VegeSortStatus.swift in Sources */,
 				863669DA2AD1A473005FEF71 /* HomeViewController.swift in Sources */,
 				863669D62AD19D1A005FEF71 /* VegeStatus.swift in Sources */,
 				861CABAD2AD142890001519C /* SceneDelegate.swift in Sources */,
@@ -461,6 +497,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = KYYQD4R3RH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = vegegrowth_SwiftUI/Info.plist;
@@ -490,6 +527,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = KYYQD4R3RH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = vegegrowth_SwiftUI/Info.plist;

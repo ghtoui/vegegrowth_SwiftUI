@@ -1,0 +1,13 @@
+strings:
+  inputs:
+      - vegegrowth_SwiftUI/Resources/Localizable.strings
+  outputs:
+    - templateName: structured-swift5
+      output: vegegrowth_SwiftUI/Generated/Strings.swift
+
+xcassets:
+  inputs:
+    - vegegrowth_SwiftUI/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: vegegrowth_SwiftUI/Generated/Assets.swift
