@@ -67,7 +67,7 @@ struct AddAlertView: View {
                 selection: $selectedCategory,
                 label: Text(selectedCategory.rawValue)
             ) {
-                ForEach(VegeCategory.allCases, id:\.self) { category in
+                ForEach(VegeCategory.allCases, id: \.self) { category in
                     Text("\(category.rawValue)")
                 }
                 .lineLimit(1)
@@ -78,7 +78,6 @@ struct AddAlertView: View {
                 RoundedRectangle(cornerRadius: 8)
                     .foregroundColor(.white)
             )
-            
             
             HStack {
                 Button(L10n.canselText, role: .cancel) { onCanselButtonClick() }

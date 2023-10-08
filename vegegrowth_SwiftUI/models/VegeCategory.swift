@@ -16,10 +16,9 @@ enum VegeCategory: CaseIterable {
 }
 
 extension VegeCategory {
-    
     // 直接 = にするとL10nは使えないので、直接上書きする
     public var rawValue: String {
-        switch (self) {
+        switch self {
         case .none:
             return L10n.categoryNone
         case .leaf:
@@ -32,7 +31,7 @@ extension VegeCategory {
     }
     
     func getIcon() -> ImageAsset {
-        switch (self) {
+        switch self {
         case .none:
             return Asset.Images.pending
         case .leaf:
@@ -45,7 +44,7 @@ extension VegeCategory {
     }
     
     func getTint() -> Color {
-        switch (self) {
+        switch self {
         case .none:
             return .clear
         case .leaf:

@@ -15,9 +15,8 @@ enum VegeStatus: String {
 }
 
 extension VegeStatus {
-    
     public var rawValue: String {
-        switch (self) {
+        switch self {
         case .`default`:
             return L10n.statusDefault
         case .favorite:
@@ -28,7 +27,7 @@ extension VegeStatus {
     }
     
     func getIcon() -> ImageAsset {
-        switch (self) {
+        switch self {
         case .`default`:
             return Asset.Images.done
         case .favorite:
@@ -39,7 +38,7 @@ extension VegeStatus {
     }
     
     func getTint() -> Color {
-        switch (self) {
+        switch self {
         case .`default`:
             return .clear
         case .favorite:

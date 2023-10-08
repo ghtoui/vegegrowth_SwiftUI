@@ -44,7 +44,6 @@ struct CustomDialog<DialogContent: View>: ViewModifier {
     }
 }
 
-
 // Viewを拡張して使いやすく
 extension View {
     func customDialog<DialogContent: View>(
