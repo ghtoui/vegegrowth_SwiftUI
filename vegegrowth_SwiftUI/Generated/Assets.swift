@@ -28,6 +28,8 @@ internal enum Asset {
     internal static let accentColor = ColorAsset(name: "AccentColor")
   }
   internal enum Images {
+    internal static let done = ImageAsset(name: "done")
+    internal static let favorite = ImageAsset(name: "favorite")
     internal static let flower = ImageAsset(name: "flower")
     internal static let pending = ImageAsset(name: "pending")
     internal static let pottedPlant = ImageAsset(name: "potted_plant")

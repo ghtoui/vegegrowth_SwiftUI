@@ -1,10 +1,20 @@
 /* 
-  Localizable.strings
-  vegegrowth_SwiftUI
+ Localizable.strings
+ vegegrowth_SwiftUI
+ 
+ Created by toui on 2023/10/08.
+ 
+ */
 
-  Created by toui on 2023/10/08.
-  
-*/
-
-"HomeViewTitle" = "一覧画面";
+"home_navigation_title" = "一覧画面";
 "add_text" = "追加";
+"add_dialog_title" = "追加したい野菜の名前を\n入力してください";
+"cansel_text" = "キャンセル";
+"none_text" = "";
+"category_none" = "カテゴリーを選択してください";
+"category_leaf" = "葉";
+"category_flower" = "花";
+"category_other" = "分類なし";
+"status_default" = "選択なし";
+"status_favorite" = "お気に入り";
+"status_end" = "生育終了";
