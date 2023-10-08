@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let hostingController = UIHostingController(rootView: HomeView())
+        let hostingController = UIHostingController(rootView: HomeView(vegeList: VegeItemList().getVegeList()))
         addChild(hostingController)
         view.addSubview(hostingController.view)
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
             hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        hostingController.didMove(toParent: self)
     }
     
     /*

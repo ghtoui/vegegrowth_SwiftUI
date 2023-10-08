@@ -10,6 +10,9 @@
 		861693222AD258640078DF61 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861693212AD258640078DF61 /* Assets.swift */; };
 		861693252AD258C40078DF61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 861693242AD258C40078DF61 /* Localizable.strings */; };
 		8616932D2AD259BC0078DF61 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8616932C2AD259BC0078DF61 /* Strings.swift */; };
+		8616932F2AD25C420078DF61 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8616932E2AD25C420078DF61 /* Images.xcassets */; };
+		861693312AD25C4E0078DF61 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 861693302AD25C4E0078DF61 /* Colors.xcassets */; };
+		8616933B2AD29CD80078DF61 /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8616933A2AD29CD80078DF61 /* CustomDialog.swift */; };
 		861CABAB2AD142890001519C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABAA2AD142890001519C /* AppDelegate.swift */; };
 		861CABAD2AD142890001519C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABAC2AD142890001519C /* SceneDelegate.swift */; };
 		861CABB22AD142890001519C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861CABB02AD142890001519C /* Main.storyboard */; };
@@ -47,6 +50,9 @@
 		861693212AD258640078DF61 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		861693242AD258C40078DF61 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		8616932C2AD259BC0078DF61 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		8616932E2AD25C420078DF61 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		861693302AD25C4E0078DF61 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		8616933A2AD29CD80078DF61 /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
 		861CABA72AD142890001519C /* vegegrowth_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vegegrowth_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		861CABAA2AD142890001519C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		861CABAC2AD142890001519C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,8 +140,18 @@
 			isa = PBXGroup;
 			children = (
 				861693242AD258C40078DF61 /* Localizable.strings */,
+				8616932E2AD25C420078DF61 /* Images.xcassets */,
+				861693302AD25C4E0078DF61 /* Colors.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		8616933C2AD29DDC0078DF61 /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				8616933A2AD29CD80078DF61 /* CustomDialog.swift */,
+			);
+			path = UIComponent;
 			sourceTree = "<group>";
 		};
 		861CAB9E2AD142890001519C = {
@@ -160,6 +176,7 @@
 		861CABA92AD142890001519C /* vegegrowth_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				8616933C2AD29DDC0078DF61 /* UIComponent */,
 				861693232AD258930078DF61 /* Resources */,
 				861693202AD258640078DF61 /* Generated */,
 				861CABE82AD17D3B0001519C /* Router.swift */,
@@ -291,7 +308,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				861693312AD25C4E0078DF61 /* Colors.xcassets in Resources */,
 				861CABB42AD1428A0001519C /* Assets.xcassets in Resources */,
+				8616932F2AD25C420078DF61 /* Images.xcassets in Resources */,
 				861693252AD258C40078DF61 /* Localizable.strings in Resources */,
 				861CABB22AD142890001519C /* Main.storyboard in Resources */,
 			);
@@ -330,6 +349,7 @@
 				863669DA2AD1A473005FEF71 /* HomeViewController.swift in Sources */,
 				863669D62AD19D1A005FEF71 /* VegeStatus.swift in Sources */,
 				861CABAD2AD142890001519C /* SceneDelegate.swift in Sources */,
+				8616933B2AD29CD80078DF61 /* CustomDialog.swift in Sources */,
 				863669D82AD1A20B005FEF71 /* VegeItemList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

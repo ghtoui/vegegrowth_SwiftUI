@@ -16,7 +16,7 @@ struct VegeItemList {
             VegeItem(name: "茄子", uuid: UUID().uuidString, category: VegeCategory.leaf, status: VegeStatus.end),
             VegeItem(name: "パンジー", uuid: UUID().uuidString, category: VegeCategory.flower, status: VegeStatus.default),
             VegeItem(name: "かぼちゃ", uuid: UUID().uuidString, category: VegeCategory.leaf, status: VegeStatus.default),
-            VegeItem(name: "ダリア", uuid: UUID().uuidString, category: VegeCategory.flower, status: VegeStatus.default),
+            VegeItem(name: "ダリア", uuid: UUID().uuidString, category: VegeCategory.flower, status: VegeStatus.default)
         ]
     }
 }
