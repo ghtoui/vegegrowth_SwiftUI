@@ -11,14 +11,14 @@ import SwiftUI
 // CustomDialogを作成するものを作成する
 
 struct CustomDialog<DialogContent: View>: ViewModifier {
-    let isOpen: Bool
+    @Binding var isOpen: Bool
     let dialogContent: DialogContent
     
     init(
-        isOpen: Bool,
+        isOpen: Binding<Bool>,
         @ViewBuilder dialogContent: () -> DialogContent
     ) {
-        self.isOpen = isOpen
+        _isOpen = isOpen
         self.dialogContent = dialogContent()
     }
     
@@ -47,7 +47,7 @@ struct CustomDialog<DialogContent: View>: ViewModifier {
 // Viewを拡張して使いやすく
 extension View {
     func customDialog<DialogContent: View>(
-        isOpen: Bool,
+        isOpen: Binding<Bool>,
         @ViewBuilder dialogContent: @escaping () -> DialogContent
     ) -> some View {
         self.modifier(CustomDialog(isOpen: isOpen, dialogContent: dialogContent))

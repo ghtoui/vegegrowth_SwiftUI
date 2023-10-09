@@ -14,7 +14,6 @@
 		861693312AD25C4E0078DF61 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 861693302AD25C4E0078DF61 /* Colors.xcassets */; };
 		8616933B2AD29CD80078DF61 /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8616933A2AD29CD80078DF61 /* CustomDialog.swift */; };
 		8616933E2AD3C2330078DF61 /* MenuStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8616933D2AD3C2330078DF61 /* MenuStatus.swift */; };
-		861693402AD40EE60078DF61 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8616933F2AD40EE60078DF61 /* HomeViewModel.swift */; };
 		861CABAB2AD142890001519C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABAA2AD142890001519C /* AppDelegate.swift */; };
 		861CABAD2AD142890001519C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABAC2AD142890001519C /* SceneDelegate.swift */; };
 		861CABB22AD142890001519C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861CABB02AD142890001519C /* Main.storyboard */; };
@@ -56,7 +55,6 @@
 		861693302AD25C4E0078DF61 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8616933A2AD29CD80078DF61 /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
 		8616933D2AD3C2330078DF61 /* MenuStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStatus.swift; sourceTree = "<group>"; };
-		8616933F2AD40EE60078DF61 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		861CABA72AD142890001519C /* vegegrowth_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vegegrowth_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		861CABAA2AD142890001519C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		861CABAC2AD142890001519C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,14 +157,6 @@
 			path = UIComponent;
 			sourceTree = "<group>";
 		};
-		861693412AD41AB30078DF61 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				8616933F2AD40EE60078DF61 /* HomeViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		861CAB9E2AD142890001519C = {
 			isa = PBXGroup;
 			children = (
@@ -197,7 +187,6 @@
 				861CABAA2AD142890001519C /* AppDelegate.swift */,
 				861CABAC2AD142890001519C /* SceneDelegate.swift */,
 				860EE1B22AD19C790051FEA3 /* models */,
-				861693412AD41AB30078DF61 /* ViewModel */,
 				860EE1AC2AD19C790051FEA3 /* ui */,
 				861CABB02AD142890001519C /* Main.storyboard */,
 				861CABB32AD1428A0001519C /* Assets.xcassets */,
@@ -354,7 +343,6 @@
 				8616933E2AD3C2330078DF61 /* MenuStatus.swift in Sources */,
 				863669D22AD19D0F005FEF71 /* VegeItem.swift in Sources */,
 				861CABAB2AD142890001519C /* AppDelegate.swift in Sources */,
-				861693402AD40EE60078DF61 /* HomeViewModel.swift in Sources */,
 				861693222AD258640078DF61 /* Assets.swift in Sources */,
 				861CABEB2AD186510001519C /* Navigation.swift in Sources */,
 				863669DC2AD1A48B005FEF71 /* HomeView.swift in Sources */,

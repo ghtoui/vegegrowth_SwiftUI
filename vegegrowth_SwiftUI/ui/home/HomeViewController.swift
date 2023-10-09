@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let hostingController = UIHostingController(rootView: HomeView(viewModel: HomeViewModel(vegeList: VegeItemList().getVegeList())))
+        let hostingController = UIHostingController(rootView: HomeView(vegeList: VegeItemList().getVegeList()))
         addChild(hostingController)
         view.addSubview(hostingController.view)
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
