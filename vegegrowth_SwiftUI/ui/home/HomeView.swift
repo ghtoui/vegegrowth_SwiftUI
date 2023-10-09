@@ -24,12 +24,12 @@ struct HomeView: View {
                             vegeItem: item,
                             selectedMenuStatus: selectedMenuStatus,
                             onDeleteButtonClick: { item in
-                                if let index = vegeList.firstIndex(where: { $0.uuid == item.uuid}) {
+                                if let index = vegeList.firstIndex(where: { $0.uuid == item.uuid }) {
                                     vegeList.remove(at: index)
                                 }
                             },
                             onEditButtonClick: { (item, status) in
-                                if let index = vegeList.firstIndex(where: { $0.uuid == item.uuid}) {
+                                if let index = vegeList.firstIndex(where: { $0.uuid == item.uuid }) {
                                     vegeList[index].status = status
                                 }
                             }
@@ -78,19 +78,21 @@ struct HomeListHeader: View {
         HStack {
             Menu {
                 ForEach(VegeSortStatus.allCases, id: \.self) { sortStatus in
-                    Button(action: { selectedSortStatus = sortStatus }) {
-                        HStack {
-                            if selectedSortStatus == sortStatus {
-                                Image(asset: Asset.Images.done)
-                                    .accentColor(.red)
+                    Button(
+                        action: { selectedSortStatus = sortStatus },
+                        label: {
+                            HStack {
+                                if selectedSortStatus == sortStatus {
+                                    Image(asset: Asset.Images.done)
+                                        .accentColor(.red)
+                                }
+                                if sortStatus == .category(VegeCategory.none) {
+                                    Text(L10n.allText)
+                                } else {
+                                    Text(sortStatus.rawValue)
+                                }
                             }
-                            if sortStatus == .category(VegeCategory.none) {
-                                Text(L10n.allText)
-                            } else {
-                                Text(sortStatus.rawValue)
-                            }
-                        }
-                    }
+                        })
                 }
             } label: {
                 Image(asset: Asset.Images.sort)
@@ -98,26 +100,35 @@ struct HomeListHeader: View {
             .menuOrder(.fixed)
             Spacer()
             if selectedMenuStatus != .none {
-                Button(action: { onDoneButtonClick() }) {
-                    Text(L10n.doneText)
-                }
+                Button(
+                    action: { onDoneButtonClick() },
+                    label: {
+                        Text(L10n.doneText)
+                    }
+                )
             } else {
                 Menu {
                     ForEach(MenuStatus.allCases, id: \.self) { menu in
                         if menu == .delete {
-                            Button(role: .destructive, action: { onMenuIconClick(menu) }) {
-                                HStack{
-                                    Image(asset: menu.getIcon())
-                                    Text(menu.rawValue)
-                                }
-                            }
+                            Button(
+                                role: .destructive,
+                                action: { onMenuIconClick(menu) },
+                                label: {
+                                    HStack {
+                                        Image(asset: menu.getIcon())
+                                        Text(menu.rawValue)
+                                    }
+                                })
                         } else if menu != .none {
-                            Button(action: { onMenuIconClick(menu) }) {
-                                HStack{
-                                    Image(asset: menu.getIcon())
-                                    Text(menu.rawValue)
+                            Button(
+                                action: { onMenuIconClick(menu) },
+                                label: {
+                                    HStack {
+                                        Image(asset: menu.getIcon())
+                                        Text(menu.rawValue)
+                                    }
                                 }
-                            }
+                            )
                         }
                     }
                 } label: {
@@ -192,10 +203,11 @@ struct VegeListElement: View {
     var body: some View {
         HStack {
             if selectedMenuStatus == .delete {
-                Button(action: { isDelete = !isDelete }) {
-                    Image(asset: Asset.Images.chevronRight)
-                        .foregroundColor(.red)
-                }
+                Button(
+                    action: { isDelete = !isDelete },
+                    label: { Image(asset: Asset.Images.chevronRight)
+                            .foregroundColor(.red)
+                    })
             }
             Image(asset: vegeItem.category.getIcon())
                 .foregroundColor(vegeItem.category.getTint())
@@ -205,23 +217,29 @@ struct VegeListElement: View {
                 .padding(.leading, 24)
             Spacer()
             if isDelete {
-                Button(action: { onDeleteButtonClick(vegeItem) }) {
-                    Image(asset: Asset.Images.delete)
-                        .foregroundColor(.red)
-                }
+                Button(
+                    action: { onDeleteButtonClick(vegeItem) },
+                    label: {
+                        Image(asset: Asset.Images.delete)
+                            .foregroundColor(.red)
+                    }
+                )
             }
             if selectedMenuStatus == .edit {
                 Menu {
                     ForEach(VegeStatus.allCases, id: \.self) { status in
-                        Button(action: {
-                            onEditButtonClick(vegeItem, status)
-                            isSelectedVegeStatus = status
-                        }) {
-                            HStack{
-                                Image(asset: status.getIcon())
-                                Text(status.rawValue)
+                        Button(
+                            action: {
+                                onEditButtonClick(vegeItem, status)
+                                isSelectedVegeStatus = status
+                            },
+                            label: {
+                                HStack {
+                                    Image(asset: status.getIcon())
+                                    Text(status.rawValue)
+                                }
                             }
-                        }
+                        )
                     }
                 } label: {
                     Image(asset: Asset.Images.edit)

@@ -31,7 +31,6 @@ extension VegeSortStatus {
             return category.rawValue
         case .status(let status):
             return status.rawValue
-            
         }
     }
     
