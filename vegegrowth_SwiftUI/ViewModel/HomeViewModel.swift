@@ -68,13 +68,17 @@ class HomeViewModel: HomeViewModelType {
     }
     
     func deleteVegeItem(item: VegeItem) {
-        guard let index = getListIndex(item: item) else { return }
+        guard let index = getListIndex(item: item) else {
+            return
+        }
         vegeList.remove(at: index)
         sortList(sortStatus: selectedSortStatus)
     }
     
     func changeVegeStatus(item: VegeItem, status: VegeStatus) {
-        guard let index = getListIndex(item: item) else { return }
+        guard let index = getListIndex(item: item) else {
+            return
+        }
         vegeList[index].status = status
         sortList(sortStatus: selectedSortStatus)
     }
