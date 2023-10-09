@@ -7,62 +7,48 @@
 
 import SwiftUI
 
-struct HomeView: View {
-    @State var vegeList: [VegeItem]
-    @State var isOpenAddDialog: Bool = false
-    @State var name: String = ""
-    @State var selectedCategory: VegeCategory = VegeCategory.none
-    @State var selectedSortStatus: VegeSortStatus = VegeSortStatus.category(.none)
-    @State var selectedMenuStatus: MenuStatus = MenuStatus.none
+// ジェネリックスを使ってinterfaceのViewModelを指定する
+struct HomeView<ViewModel: HomeViewModelType>: View {
+    @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         NavigationView {
             List {
                 Section {
-                    ForEach(vegeList) { item in
+                    ForEach(viewModel.sortList) { item in
                         VegeListElement(
                             vegeItem: item,
-                            selectedMenuStatus: selectedMenuStatus,
+                            selectedMenuStatus: viewModel.selectedMenuStatus,
                             onDeleteButtonClick: { item in
-                                if let index = vegeList.firstIndex(where: { $0.uuid == item.uuid }) {
-                                    vegeList.remove(at: index)
-                                }
+                                viewModel.deleteVegeItem(item: item)
                             },
                             onEditButtonClick: { (item, status) in
-                                if let index = vegeList.firstIndex(where: { $0.uuid == item.uuid }) {
-                                    vegeList[index].status = status
-                                }
+                                viewModel.changeVegeStatus(item: item, status: status)
                             }
                         )
                     }
                     .onDelete(perform: nil)
                 } header: { HomeListHeader(
-                    onMenuIconClick: { selectedMenuStatus = $0 },
-                    onDoneButtonClick: { selectedMenuStatus = .none },
-                    selectedSortStatus: $selectedSortStatus,
-                    selectedMenuStatus: $selectedMenuStatus
+                    onMenuIconClick: { viewModel.selectMenuStatus(selectMenuStatus: $0) },
+                    onDoneButtonClick: { viewModel.selectMenuStatus(selectMenuStatus: .none) },
+                    selectedSortStatus: viewModel.selectedSortStatus,
+                    selectedMenuStatus: viewModel.selectedMenuStatus,
+                    onSortMenuButtonClick: { viewModel.selectSortStatus(selectSortStatus: $0) }
                 )}
             }
             .listStyle(.plain)
             .navigationBarTitle(L10n.homeNavigationTitle, displayMode: .inline)
-            .navigationBarItems(trailing: Button(action: { isOpenAddDialog = true }, label: { Text(L10n.addText) }))
-            .customDialog(isOpen: $isOpenAddDialog) {
-                AddAlertView(
-                    selectedCategory: $selectedCategory,
-                    name: $name,
-                    onAddButtonClick: {
-                        let item = VegeItem(name: name, uuid: UUID().uuidString, category: selectedCategory, status: VegeStatus.default)
-                        print(item)
-                        vegeList.append(item)
-                        isOpenAddDialog = false
-                        selectedCategory = .none
-                        name = L10n.noneText
-                    },
-                    onCanselButtonClick: {
-                        isOpenAddDialog = false
-                        selectedCategory = .none
-                        name = L10n.noneText
-                    }
+            .navigationBarItems(trailing: Button(
+                action: { viewModel.changeOpenAddDialog() },
+                label: { Text(L10n.addText) })
+            )
+            .customDialog(isOpen: viewModel.isOpenAddDialog) {
+                AddAlertDialog(
+                    selectedCategory: viewModel.selectedCategory,
+                    inputText: $viewModel.inputText,
+                    onAddButtonClick: { viewModel.addVegeItem() },
+                    onCanselButtonClick: { viewModel.cancelDialog() },
+                    onCategoryMenuClick: { viewModel.selectCategory(selectCategory: $0) }
                 )
             }
         }
@@ -72,15 +58,16 @@ struct HomeView: View {
 struct HomeListHeader: View {
     let onMenuIconClick: (MenuStatus) -> Void
     let onDoneButtonClick: () -> Void
-    @Binding var selectedSortStatus: VegeSortStatus
-    @Binding var selectedMenuStatus: MenuStatus
+    let selectedSortStatus: VegeSortStatus
+    let selectedMenuStatus: MenuStatus
+    let onSortMenuButtonClick: (VegeSortStatus) -> Void
     
     var body: some View {
         HStack {
             Menu {
                 ForEach(VegeSortStatus.allCases, id: \.self) { sortStatus in
                     Button(
-                        action: { selectedSortStatus = sortStatus },
+                        action: { onSortMenuButtonClick(sortStatus) },
                         label: {
                             HStack {
                                 if selectedSortStatus == sortStatus {
@@ -142,11 +129,12 @@ struct HomeListHeader: View {
     }
 }
 
-struct AddAlertView: View {
-    @Binding var selectedCategory: VegeCategory
-    @Binding var name: String
+struct AddAlertDialog: View {
+    let selectedCategory: VegeCategory
+    @Binding var inputText: String
     let onAddButtonClick: () -> Void
     let onCanselButtonClick: () -> Void
+    let onCategoryMenuClick: (VegeCategory) -> Void
     
     var body: some View {
         VStack {
@@ -154,21 +142,35 @@ struct AddAlertView: View {
                 .lineLimit(2)
                 .font(.title)
                 .minimumScaleFactor(0.5)
-            TextField(L10n.noneText, text: $name)
+            TextField(L10n.noneText, text: $inputText)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(height: 30)
             
-            Picker(
-                selection: $selectedCategory,
-                label: Text(selectedCategory.rawValue)
-            ) {
+            Menu {
                 ForEach(VegeCategory.allCases, id: \.self) { category in
-                    Text("\(category.rawValue)")
+                    if category != .none {
+                        Button(
+                            action: { onCategoryMenuClick(category) },
+                            label: {
+                                HStack {
+                                    Image(asset: category.getIcon())
+                                    Text("\(category.rawValue)")
+                                }
+                            })
+                    }
                 }
-                .lineLimit(1)
-                .minimumScaleFactor(0.5)
+            } label: {
+                if selectedCategory == .none {
+                    Text(selectedCategory.rawValue)
+                } else {
+                    HStack {
+                        Text(selectedCategory.rawValue)
+                        Image(asset: selectedCategory.getIcon())
+                            .foregroundColor(selectedCategory.getTint())
+                    }
+                }
             }
-            .pickerStyle(.menu)
+            .menuOrder(.fixed)
             .padding(.top, 4)
             
             HStack {
@@ -266,16 +268,12 @@ struct HomeViewPreviews: PreviewProvider {
     @State static var selectedCategory: VegeCategory = VegeCategory.none
     
     static var previews: some View {
-        HomeView(
-            vegeList: VegeItemList().getVegeList()
-        )
-        .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
-        .previewDisplayName("iPhone SE homeview")
+        HomeView(viewModel: HomeViewModel(vegeList: VegeItemList().getVegeList()))
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+            .previewDisplayName("iPhone SE homeview")
         
-        HomeView(
-            vegeList: VegeItemList().getVegeList()
-        )
-        .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
-        .previewDisplayName("iPhone 14 Pro homeview")
+        HomeView(viewModel: HomeViewModel(vegeList: VegeItemList().getVegeList()))
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
+            .previewDisplayName("iPhone 14 Pro homeview")
     }
 }
