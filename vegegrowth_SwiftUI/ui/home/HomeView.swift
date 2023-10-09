@@ -12,16 +12,37 @@ struct HomeView: View {
     @State var isOpenAddDialog: Bool = false
     @State var name: String = ""
     @State var selectedCategory: VegeCategory = VegeCategory.none
+    @State var selectedSortStatus: VegeSortStatus = VegeSortStatus.category(.none)
+    @State var selectedMenuStatus: MenuStatus = MenuStatus.none
     
     var body: some View {
         NavigationView {
-            VStack {
-                List {
+            List {
+                Section {
                     ForEach(vegeList) { item in
-                        VegeListElement(vegeItem: item)
+                        VegeListElement(
+                            vegeItem: item,
+                            selectedMenuStatus: selectedMenuStatus,
+                            onDeleteButtonClick: { item in
+                                if let index = vegeList.firstIndex(where: { $0.uuid == item.uuid}) {
+                                    vegeList.remove(at: index)
+                                }
+                            },
+                            onEditButtonClick: { (item, status) in
+                                if let index = vegeList.firstIndex(where: { $0.uuid == item.uuid}) {
+                                    vegeList[index].status = status
+                                }
+                            }
+                        )
                     }
-                }
+                } header: { HomeListHeader(
+                    onMenuIconClick: { selectedMenuStatus = $0 },
+                    onDoneButtonClick: { selectedMenuStatus = .none },
+                    selectedSortStatus: $selectedSortStatus,
+                    selectedMenuStatus: $selectedMenuStatus
+                )}
             }
+            .listStyle(.plain)
             .navigationBarTitle(L10n.homeNavigationTitle, displayMode: .inline)
             .navigationBarItems(trailing: Button(action: { isOpenAddDialog = true }, label: { Text(L10n.addText) }))
             .customDialog(isOpen: $isOpenAddDialog) {
@@ -47,6 +68,68 @@ struct HomeView: View {
     }
 }
 
+struct HomeListHeader: View {
+    let onMenuIconClick: (MenuStatus) -> Void
+    let onDoneButtonClick: () -> Void
+    @Binding var selectedSortStatus: VegeSortStatus
+    @Binding var selectedMenuStatus: MenuStatus
+    
+    var body: some View {
+        HStack {
+            Menu {
+                ForEach(VegeSortStatus.allCases, id: \.self) { sortStatus in
+                    Button(action: { selectedSortStatus = sortStatus }) {
+                        HStack {
+                            if selectedSortStatus == sortStatus {
+                                Image(asset: Asset.Images.done)
+                                    .accentColor(.red)
+                            }
+                            if sortStatus == .category(VegeCategory.none) {
+                                Text(L10n.allText)
+                            } else {
+                                Text(sortStatus.rawValue)
+                            }
+                        }
+                    }
+                }
+            } label: {
+                Image(asset: Asset.Images.sort)
+            }
+            .menuOrder(.fixed)
+            Spacer()
+            if selectedMenuStatus != .none {
+                Button(action: { onDoneButtonClick() }) {
+                    Text(L10n.doneText)
+                }
+            } else {
+                Menu {
+                    ForEach(MenuStatus.allCases, id: \.self) { menu in
+                        if menu == .delete {
+                            Button(role: .destructive, action: { onMenuIconClick(menu) }) {
+                                HStack{
+                                    Image(asset: menu.getIcon())
+                                    Text(menu.rawValue)
+                                }
+                            }
+                        } else if menu != .none {
+                            Button(action: { onMenuIconClick(menu) }) {
+                                HStack{
+                                    Image(asset: menu.getIcon())
+                                    Text(menu.rawValue)
+                                }
+                            }
+                        }
+                    }
+                } label: {
+                    Image(asset: Asset.Images.menu)
+                }
+                .menuOrder(.fixed)
+            }
+        }
+        .padding(.vertical, 16)
+    }
+}
+
 struct AddAlertView: View {
     @Binding var selectedCategory: VegeCategory
     @Binding var name: String
@@ -56,8 +139,8 @@ struct AddAlertView: View {
     var body: some View {
         VStack {
             Text(L10n.addDialogTitle)
-                .font(.title)
                 .lineLimit(2)
+                .font(.title)
                 .minimumScaleFactor(0.5)
             TextField(L10n.noneText, text: $name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -74,20 +157,25 @@ struct AddAlertView: View {
                 .minimumScaleFactor(0.5)
             }
             .pickerStyle(.menu)
-            .background(
-                RoundedRectangle(cornerRadius: 8)
-                    .foregroundColor(.white)
-            )
+            .padding(.top, 4)
             
             HStack {
                 Button(L10n.canselText, role: .cancel) { onCanselButtonClick() }
-                    .foregroundColor(.blue)
-                Button(L10n.addText, role: .destructive) {
-                    onAddButtonClick()
-                }
-                .padding()
-                .foregroundColor(.blue)
+                    .frame(width: 100, height: 30)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 1)
+                    )
+                    .padding(.trailing, 4)
+                Button(L10n.addText, role: .none) { onAddButtonClick() }
+                    .padding()
+                    .frame(width: 100, height: 30)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 1)
+                    )
             }
+            .padding(.top, 40)
         }
         .padding(24)
     }
@@ -95,18 +183,59 @@ struct AddAlertView: View {
 
 struct VegeListElement: View {
     let vegeItem: VegeItem
+    let selectedMenuStatus: MenuStatus
+    let onDeleteButtonClick: (VegeItem) -> Void
+    let onEditButtonClick: (VegeItem, VegeStatus) -> Void
+    @State var isDelete = false
+    @State var isSelectedVegeStatus: VegeStatus = VegeStatus.default
     
     var body: some View {
         HStack {
-            Image(uiImage: UIImage(asset: vegeItem.category.getIcon())!)
+            if selectedMenuStatus == .delete {
+                Button(action: { isDelete = !isDelete }) {
+                    Image(asset: Asset.Images.chevronRight)
+                        .foregroundColor(.red)
+                }
+            }
+            Image(asset: vegeItem.category.getIcon())
                 .foregroundColor(vegeItem.category.getTint())
             Text(vegeItem.name)
-            Image(uiImage: UIImage(asset: vegeItem.status.getIcon())!)
+            Image(asset: vegeItem.status.getIcon())
                 .foregroundColor(vegeItem.status.getTint())
                 .padding(.leading, 24)
             Spacer()
+            if isDelete {
+                Button(action: { onDeleteButtonClick(vegeItem) }) {
+                    Image(asset: Asset.Images.delete)
+                        .foregroundColor(.red)
+                }
+            }
+            if selectedMenuStatus == .edit {
+                Menu {
+                    ForEach(VegeStatus.allCases, id: \.self) { status in
+                        Button(action: {
+                            onEditButtonClick(vegeItem, status)
+                            isSelectedVegeStatus = status
+                        }) {
+                            HStack{
+                                Image(asset: status.getIcon())
+                                Text(status.rawValue)
+                            }
+                        }
+                    }
+                } label: {
+                    Image(asset: Asset.Images.edit)
+                }
+                .menuOrder(.fixed)
+            }
         }
         .frame(height: 40)
+        // 値の変更を検知させる
+        .onChange(of: selectedMenuStatus) { menuStatus in
+            if menuStatus != .delete {
+                isDelete = false
+            }
+        }
     }
 }
 
@@ -129,13 +258,5 @@ struct HomeViewPreviews: PreviewProvider {
         )
         .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
         .previewDisplayName("iPhone 14 Pro homeview")
-        
-        AddAlertView(selectedCategory: $selectedCategory, name: $name, onAddButtonClick: { }, onCanselButtonClick: { })
-            .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
-            .previewDisplayName("iPhone SE")
-        
-        AddAlertView(selectedCategory: $selectedCategory, name: $name, onAddButtonClick: { }, onCanselButtonClick: { })
-            .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
-            .previewDisplayName("iPhone 14 Pro")
     }
 }

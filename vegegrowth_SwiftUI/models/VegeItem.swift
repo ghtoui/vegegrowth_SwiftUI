@@ -12,5 +12,5 @@ struct VegeItem: Identifiable {
     let name: String
     let uuid: String
     let category: VegeCategory
-    let status: VegeStatus
+    var status: VegeStatus
 }
