@@ -35,6 +35,7 @@ struct HomeView: View {
                             }
                         )
                     }
+                    .onDelete(perform: nil)
                 } header: { HomeListHeader(
                     onMenuIconClick: { selectedMenuStatus = $0 },
                     onDoneButtonClick: { selectedMenuStatus = .none },
