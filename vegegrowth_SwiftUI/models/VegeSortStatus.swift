@@ -51,4 +51,20 @@ extension VegeSortStatus {
             return status.getTint()
         }
     }
+    
+    // SortStatusとcategory, statusを比較する
+    // それ以外が与えられたらfalse
+    func isEqual<T>(compare: T) -> Bool {
+        switch self {
+        case .category(let category):
+            if let compare = compare as? VegeCategory {
+                return category == compare
+            }
+        case .status(let status):
+            if let compare = compare as? VegeStatus {
+                return status == compare
+            }
+        }
+        return false
+    }
 }
