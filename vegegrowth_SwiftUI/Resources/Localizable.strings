@@ -18,3 +18,8 @@
 "status_default" = "選択なし";
 "status_favorite" = "お気に入り";
 "status_end" = "生育終了";
+"delete_text" = "削除";
+"edit_text" = "編集";
+"done_text" = "完了";
+"all_text" = "全て";
+"delete_mode_title" = "選択した項目を削除";

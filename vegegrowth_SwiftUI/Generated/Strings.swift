@@ -15,6 +15,8 @@ internal enum L10n {
   internal static let addDialogTitle = L10n.tr("Localizable", "add_dialog_title", fallback: "追加したい野菜の名前を\n入力してください")
   /// 追加
   internal static let addText = L10n.tr("Localizable", "add_text", fallback: "追加")
+  /// 全て
+  internal static let allText = L10n.tr("Localizable", "all_text", fallback: "全て")
   /// キャンセル
   internal static let canselText = L10n.tr("Localizable", "cansel_text", fallback: "キャンセル")
   /// 花
@@ -25,6 +27,14 @@ internal enum L10n {
   internal static let categoryNone = L10n.tr("Localizable", "category_none", fallback: "カテゴリーを選択してください")
   /// 分類なし
   internal static let categoryOther = L10n.tr("Localizable", "category_other", fallback: "分類なし")
+  /// 選択した項目を削除
+  internal static let deleteModeTitle = L10n.tr("Localizable", "delete_mode_title", fallback: "選択した項目を削除")
+  /// 削除
+  internal static let deleteText = L10n.tr("Localizable", "delete_text", fallback: "削除")
+  /// 完了
+  internal static let doneText = L10n.tr("Localizable", "done_text", fallback: "完了")
+  /// 編集
+  internal static let editText = L10n.tr("Localizable", "edit_text", fallback: "編集")
   /// Localizable.strings
   ///  vegegrowth_SwiftUI
   ///  
