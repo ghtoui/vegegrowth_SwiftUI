@@ -27,7 +27,7 @@ protocol HomeViewModelType: ObservableObject {
 
 extension HomeViewModelType {
     func checkInputText() -> Bool {
-        return self.inputText != ""
+        return self.inputText.isEmpty
     }
 }
 

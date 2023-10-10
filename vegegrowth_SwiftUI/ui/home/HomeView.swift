@@ -189,7 +189,7 @@ struct AddAlertDialog: View {
                     .background(
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(lineWidth: 1)
-                            .foregroundColor(isNotNoneText ? .black: .gray)
+                            .foregroundColor(isNotNoneText ? .black : .gray)
                     )
                     .disabled(!isNotNoneText)
             }
