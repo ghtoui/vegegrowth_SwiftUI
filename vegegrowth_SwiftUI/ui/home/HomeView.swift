@@ -14,7 +14,7 @@ struct HomeView<ViewModel: HomeViewModelType>: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVStack {
+                LazyVStack(pinnedViews: [.sectionHeaders]) {
                     Section {
                         ForEach(viewModel.sortList) { item in
                             VegeListElement(
@@ -133,6 +133,7 @@ struct HomeListHeader: View {
             }
         }
         .padding(.vertical, 16)
+        .background(.white)
     }
 }
 
