@@ -215,7 +215,7 @@ struct VegeListElement: View {
             if selectedMenuStatus == .none {
                 let takePic = Rootings.takePic(vegeItem: vegeItem)
                 NavigationLink(
-                    destination: { takePic.createView() },
+                    destination: takePic.createView(),
                     label: { Rectangle().foregroundColor(.clear) }
                 )
             }
