@@ -191,7 +191,7 @@ struct AddAlertDialog: View {
                             .stroke(lineWidth: 1)
                             .foregroundColor(isNotNoneText ? .black : .gray)
                     )
-                    .disabled(!isNotNoneText)
+                    .disabled(isNotNoneText)
             }
             .padding(.top, 40)
         }
