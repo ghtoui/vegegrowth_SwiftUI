@@ -15,13 +15,14 @@
 		8616933B2AD29CD80078DF61 /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8616933A2AD29CD80078DF61 /* CustomDialog.swift */; };
 		8616933E2AD3C2330078DF61 /* MenuStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8616933D2AD3C2330078DF61 /* MenuStatus.swift */; };
 		861693402AD40EE60078DF61 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8616933F2AD40EE60078DF61 /* HomeViewModel.swift */; };
+		861693442AD4D0240078DF61 /* TakePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861693432AD4D0240078DF61 /* TakePicView.swift */; };
+		861693462AD4D0340078DF61 /* TakePicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861693452AD4D0340078DF61 /* TakePicViewController.swift */; };
 		861CABAB2AD142890001519C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABAA2AD142890001519C /* AppDelegate.swift */; };
 		861CABAD2AD142890001519C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABAC2AD142890001519C /* SceneDelegate.swift */; };
 		861CABB22AD142890001519C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861CABB02AD142890001519C /* Main.storyboard */; };
 		861CABB42AD1428A0001519C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 861CABB32AD1428A0001519C /* Assets.xcassets */; };
 		861CABC22AD1428A0001519C /* vegegrowth_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABC12AD1428A0001519C /* vegegrowth_SwiftUITests.swift */; };
-		861CABE92AD17D3B0001519C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABE82AD17D3B0001519C /* Router.swift */; };
-		861CABEB2AD186510001519C /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABEA2AD186510001519C /* Navigation.swift */; };
+		861CABEB2AD186510001519C /* Routings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861CABEA2AD186510001519C /* Routings.swift */; };
 		863669D22AD19D0F005FEF71 /* VegeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669D12AD19D0F005FEF71 /* VegeItem.swift */; };
 		863669D42AD19D15005FEF71 /* VegeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669D32AD19D15005FEF71 /* VegeCategory.swift */; };
 		863669D62AD19D1A005FEF71 /* VegeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863669D52AD19D1A005FEF71 /* VegeStatus.swift */; };
@@ -57,6 +58,8 @@
 		8616933A2AD29CD80078DF61 /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
 		8616933D2AD3C2330078DF61 /* MenuStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStatus.swift; sourceTree = "<group>"; };
 		8616933F2AD40EE60078DF61 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		861693432AD4D0240078DF61 /* TakePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePicView.swift; sourceTree = "<group>"; };
+		861693452AD4D0340078DF61 /* TakePicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePicViewController.swift; sourceTree = "<group>"; };
 		861CABA72AD142890001519C /* vegegrowth_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vegegrowth_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		861CABAA2AD142890001519C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		861CABAC2AD142890001519C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,8 +69,7 @@
 		861CABBD2AD1428A0001519C /* vegegrowth_SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vegegrowth_SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		861CABC12AD1428A0001519C /* vegegrowth_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vegegrowth_SwiftUITests.swift; sourceTree = "<group>"; };
 		861CABC72AD1428A0001519C /* vegegrowth_SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vegegrowth_SwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		861CABE82AD17D3B0001519C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		861CABEA2AD186510001519C /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		861CABEA2AD186510001519C /* Routings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routings.swift; sourceTree = "<group>"; };
 		863669D12AD19D0F005FEF71 /* VegeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegeItem.swift; sourceTree = "<group>"; };
 		863669D32AD19D15005FEF71 /* VegeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegeCategory.swift; sourceTree = "<group>"; };
 		863669D52AD19D1A005FEF71 /* VegeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegeStatus.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		860EE1AC2AD19C790051FEA3 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				861693422AD4D00D0078DF61 /* takepicture */,
 				860EE1AD2AD19C790051FEA3 /* home */,
 			);
 			path = ui;
@@ -167,6 +170,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		861693422AD4D00D0078DF61 /* takepicture */ = {
+			isa = PBXGroup;
+			children = (
+				861693452AD4D0340078DF61 /* TakePicViewController.swift */,
+				861693432AD4D0240078DF61 /* TakePicView.swift */,
+			);
+			path = takepicture;
+			sourceTree = "<group>";
+		};
 		861CAB9E2AD142890001519C = {
 			isa = PBXGroup;
 			children = (
@@ -192,8 +204,7 @@
 				8616933C2AD29DDC0078DF61 /* UIComponent */,
 				861693232AD258930078DF61 /* Resources */,
 				861693202AD258640078DF61 /* Generated */,
-				861CABE82AD17D3B0001519C /* Router.swift */,
-				861CABEA2AD186510001519C /* Navigation.swift */,
+				861CABEA2AD186510001519C /* Routings.swift */,
 				861CABAA2AD142890001519C /* AppDelegate.swift */,
 				861CABAC2AD142890001519C /* SceneDelegate.swift */,
 				860EE1B22AD19C790051FEA3 /* models */,
@@ -354,14 +365,15 @@
 				8616933E2AD3C2330078DF61 /* MenuStatus.swift in Sources */,
 				863669D22AD19D0F005FEF71 /* VegeItem.swift in Sources */,
 				861CABAB2AD142890001519C /* AppDelegate.swift in Sources */,
+				861693442AD4D0240078DF61 /* TakePicView.swift in Sources */,
 				861693402AD40EE60078DF61 /* HomeViewModel.swift in Sources */,
 				861693222AD258640078DF61 /* Assets.swift in Sources */,
-				861CABEB2AD186510001519C /* Navigation.swift in Sources */,
+				861CABEB2AD186510001519C /* Routings.swift in Sources */,
 				863669DC2AD1A48B005FEF71 /* HomeView.swift in Sources */,
-				861CABE92AD17D3B0001519C /* Router.swift in Sources */,
 				863669D42AD19D15005FEF71 /* VegeCategory.swift in Sources */,
 				8616932D2AD259BC0078DF61 /* Strings.swift in Sources */,
 				863669DE2AD244FD005FEF71 /* VegeSortStatus.swift in Sources */,
+				861693462AD4D0340078DF61 /* TakePicViewController.swift in Sources */,
 				863669DA2AD1A473005FEF71 /* HomeViewController.swift in Sources */,
 				863669D62AD19D1A005FEF71 /* VegeStatus.swift in Sources */,
 				861CABAD2AD142890001519C /* SceneDelegate.swift in Sources */,
