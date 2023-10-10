@@ -15,7 +15,6 @@ protocol HomeViewModelType: ObservableObject {
     var selectedSortStatus: VegeSortStatus { get }
     var selectedMenuStatus: MenuStatus { get }
     
-    func changeInputText(inputText: String)
     func selectMenuStatus(selectMenuStatus: MenuStatus)
     func selectSortStatus(selectSortStatus: VegeSortStatus)
     func selectCategory(selectCategory: VegeCategory)
@@ -24,6 +23,12 @@ protocol HomeViewModelType: ObservableObject {
     func changeVegeStatus(item: VegeItem, status: VegeStatus)
     func addVegeItem()
     func cancelDialog()
+}
+
+extension HomeViewModelType {
+    func checkInputText() -> Bool {
+        return self.inputText != ""
+    }
 }
 
 class HomeViewModel: HomeViewModelType {
@@ -44,10 +49,6 @@ class HomeViewModel: HomeViewModelType {
     init(vegeList: [VegeItem]) {
         self.vegeList = vegeList
         self.sortList = vegeList
-    }
-    
-    func changeInputText(inputText: String) {
-        self.inputText = inputText
     }
     
     func selectMenuStatus(selectMenuStatus: MenuStatus) {
