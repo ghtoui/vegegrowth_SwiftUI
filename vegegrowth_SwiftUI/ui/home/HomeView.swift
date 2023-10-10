@@ -53,7 +53,8 @@ struct HomeView<ViewModel: HomeViewModelType>: View {
                         inputText: $viewModel.inputText,
                         onAddButtonClick: { viewModel.addVegeItem() },
                         onCanselButtonClick: { viewModel.cancelDialog() },
-                        onCategoryMenuClick: { viewModel.selectCategory(selectCategory: $0) }
+                        onCategoryMenuClick: { viewModel.selectCategory(selectCategory: $0) },
+                        isNotNoneText: viewModel.checkInputText()
                     )
                 }
             }
@@ -141,6 +142,7 @@ struct AddAlertDialog: View {
     let onAddButtonClick: () -> Void
     let onCanselButtonClick: () -> Void
     let onCategoryMenuClick: (VegeCategory) -> Void
+    let isNotNoneText: Bool
     
     var body: some View {
         VStack {
@@ -193,7 +195,9 @@ struct AddAlertDialog: View {
                     .background(
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(lineWidth: 1)
+                            .foregroundColor(isNotNoneText ? .black : .gray)
                     )
+                    .disabled(isNotNoneText)
             }
             .padding(.top, 40)
         }
