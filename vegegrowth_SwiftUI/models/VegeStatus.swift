@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum VegeStatus: CaseIterable {
+enum VegeStatus: CaseIterable, Codable {
     case `default`
     case favorite
     case end

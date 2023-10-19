@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum VegeCategory: CaseIterable {
+enum VegeCategory: CaseIterable, Codable {
     case none
     case leaf
     case flower
