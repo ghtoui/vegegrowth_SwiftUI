@@ -33,6 +33,7 @@ extension HomeViewModelType {
 
 class HomeViewModel: HomeViewModelType {
     private var vegeList: [VegeItem]
+    private let fileManager = FileManager()
     
     @Published var sortList: [VegeItem]
     
@@ -46,9 +47,13 @@ class HomeViewModel: HomeViewModelType {
     
     @Published var selectedMenuStatus: MenuStatus = MenuStatus.none
     
-    init(vegeList: [VegeItem]) {
-        self.vegeList = vegeList
-        self.sortList = vegeList
+    init(vegeList: [VegeItem] = []) {
+        if vegeList.isEmpty {
+            self.vegeList = fileManager.loadVegeList()
+        } else {
+            self.vegeList = vegeList
+        }
+        self.sortList = self.vegeList
     }
     
     func selectMenuStatus(selectMenuStatus: MenuStatus) {
@@ -73,7 +78,7 @@ class HomeViewModel: HomeViewModelType {
             return
         }
         vegeList.remove(at: index)
-        sortList(sortStatus: selectedSortStatus)
+        updateVegeList()
     }
     
     func changeVegeStatus(item: VegeItem, status: VegeStatus) {
@@ -81,7 +86,7 @@ class HomeViewModel: HomeViewModelType {
             return
         }
         vegeList[index].status = status
-        sortList(sortStatus: selectedSortStatus)
+        updateVegeList()
     }
     
     func addVegeItem() {
@@ -94,7 +99,7 @@ class HomeViewModel: HomeViewModelType {
         isOpenAddDialog = false
         selectedCategory = .none
         inputText = L10n.noneText
-        sortList(sortStatus: selectedSortStatus)
+        updateVegeList()
     }
     
     func cancelDialog() {
@@ -105,6 +110,11 @@ class HomeViewModel: HomeViewModelType {
 }
 
 extension HomeViewModel {
+    private func updateVegeList() {
+        fileManager.saveVegeList(vegeList: vegeList)
+        sortList(sortStatus: selectedSortStatus)
+    }
+    
     private func getListIndex(item: VegeItem) -> Int? {
         if let index = vegeList.firstIndex(where: { $0.uuid == item.uuid }) {
             return index
@@ -119,7 +129,6 @@ extension HomeViewModel {
         if sortStatus == .category(.none) {
             sortList = vegeList
         }
-        
         self.sortList = sortList
     }
 }
