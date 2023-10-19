@@ -1,11 +1,7 @@
-/* 
- Localizable.strings
- vegegrowth_SwiftUI
- 
- Created by toui on 2023/10/08.
- 
- */
+// MARK: UserDefaultのKey用
+"user_default_vege_item_list" = "vegeItemList";
 
+// MARK: UIのテキスト
 "home_navigation_title" = "一覧画面";
 "add_text" = "追加";
 "add_dialog_title" = "追加したい野菜の名前を\n入力してください";

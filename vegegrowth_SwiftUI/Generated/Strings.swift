@@ -35,10 +35,7 @@ internal enum L10n {
   internal static let doneText = L10n.tr("Localizable", "done_text", fallback: "完了")
   /// 編集
   internal static let editText = L10n.tr("Localizable", "edit_text", fallback: "編集")
-  /// Localizable.strings
-  ///  vegegrowth_SwiftUI
-  ///  
-  ///  Created by toui on 2023/10/08.
+  /// 一覧画面
   internal static let homeNavigationTitle = L10n.tr("Localizable", "home_navigation_title", fallback: "一覧画面")
   /// 
   internal static let noneText = L10n.tr("Localizable", "none_text", fallback: "")
@@ -48,6 +45,8 @@ internal enum L10n {
   internal static let statusEnd = L10n.tr("Localizable", "status_end", fallback: "生育終了")
   /// お気に入り
   internal static let statusFavorite = L10n.tr("Localizable", "status_favorite", fallback: "お気に入り")
+  /// vegeItemList
+  internal static let userDefaultVegeItemList = L10n.tr("Localizable", "user_default_vege_item_list", fallback: "vegeItemList")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
