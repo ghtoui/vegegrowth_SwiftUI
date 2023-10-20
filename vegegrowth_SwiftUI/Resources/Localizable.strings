@@ -19,3 +19,8 @@
 "done_text" = "完了";
 "all_text" = "全て";
 "delete_mode_title" = "選択した項目を削除";
+"take_photo_button_text" = "撮影する";
+"register_data_button_text" = "登録する";
+"picture_none_text" = "ここに撮影した画像が表示されます";
+"register_dialog_titile" = "撮影した写真の大きさを\n入力してください";
+"navigate_manage_screen_text" = "管理画面へ";
