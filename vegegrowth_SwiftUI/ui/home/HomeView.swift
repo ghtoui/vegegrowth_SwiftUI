@@ -47,16 +47,15 @@ struct HomeView<ViewModel: HomeViewModelType>: View {
                     action: { viewModel.changeOpenAddDialog() },
                     label: { Text(L10n.addText) })
                 )
-                .customDialog(isOpen: viewModel.isOpenAddDialog) {
-                    AddAlertDialog(
-                        selectedCategory: viewModel.selectedCategory,
-                        inputText: $viewModel.inputText,
-                        onAddButtonClick: { viewModel.addVegeItem() },
-                        onCanselButtonClick: { viewModel.cancelDialog() },
-                        onCategoryMenuClick: { viewModel.selectCategory(selectCategory: $0) },
-                        isNotNoneText: viewModel.checkInputText()
-                    )
-                }
+            }.customDialog(isOpen: viewModel.isOpenAddDialog) {
+                AddAlertDialog(
+                    selectedCategory: viewModel.selectedCategory,
+                    inputText: $viewModel.inputText,
+                    onAddButtonClick: { viewModel.addVegeItem() },
+                    onCanselButtonClick: { viewModel.cancelDialog() },
+                    onCategoryMenuClick: { viewModel.selectCategory(selectCategory: $0) },
+                    isNotNoneText: viewModel.checkInputText()
+                )
             }
         }
     }
