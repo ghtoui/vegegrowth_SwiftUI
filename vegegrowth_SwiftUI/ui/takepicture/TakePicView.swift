@@ -12,7 +12,7 @@ struct TakePicView: View {
     @State var inputText: String = ""
     @State var isOpenRegisterDIalog: Bool = false
     @State var isCameraOpen: Bool = false
-    @State var takePictureImage: UIImage? = nil
+    @State var takePictureImage: UIImage?
     
     var body: some View {
         let isVisibleRegisterButton: Bool = true
