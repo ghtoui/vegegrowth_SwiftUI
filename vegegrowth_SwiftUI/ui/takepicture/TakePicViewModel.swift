@@ -70,7 +70,7 @@ class TakePictureViewModel: TakePictureViewModelType {
         
         $inputText
             .sink { text in
-                if (text != "" && self.isFirstOpenRegisterDialog) {
+                if !text.isEmpty && self.isFirstOpenRegisterDialog {
                     self.isFirstOpenRegisterDialog = false
                 }
             }
