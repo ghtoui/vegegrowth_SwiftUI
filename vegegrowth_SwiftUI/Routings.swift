@@ -24,8 +24,13 @@ extension Rootings {
             )
             return AnyView(view)
             
-        case .takePic(let vegeItem):
-            let view = TakePicView(vegeItem: vegeItem)
+        case .takePic(
+            let vegeItem
+        ):
+            let view = TakePicView(
+                vegeItem: vegeItem,
+                viewModel: TakePictureViewModel()
+            )
             return AnyView(view)
         }
     }
