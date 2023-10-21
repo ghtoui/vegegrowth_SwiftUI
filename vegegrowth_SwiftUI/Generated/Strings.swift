@@ -37,14 +37,16 @@ internal enum L10n {
   internal static let editText = L10n.tr("Localizable", "edit_text", fallback: "編集")
   /// 一覧画面
   internal static let homeNavigationTitle = L10n.tr("Localizable", "home_navigation_title", fallback: "一覧画面")
-  /// 管理画面
-  internal static let navigateManageScreenText = L10n.tr("Localizable", "navigate_manage_screen_text", fallback: "管理画面")
+  /// 管理画面へ
+  internal static let navigateManageScreenText = L10n.tr("Localizable", "navigate_manage_screen_text", fallback: "管理画面へ")
   /// 
   internal static let noneText = L10n.tr("Localizable", "none_text", fallback: "")
   /// ここに撮影した画像が表示されます
   internal static let pictureNoneText = L10n.tr("Localizable", "picture_none_text", fallback: "ここに撮影した画像が表示されます")
   /// 登録する
   internal static let registerDataButtonText = L10n.tr("Localizable", "register_data_button_text", fallback: "登録する")
+  /// 正しい数値を入力してください
+  internal static let registerDialogErrorText = L10n.tr("Localizable", "register_dialog_error_text", fallback: "正しい数値を入力してください")
   /// 撮影した写真の大きさを
   /// 入力してください
   internal static let registerDialogTitile = L10n.tr("Localizable", "register_dialog_titile", fallback: "撮影した写真の大きさを\n入力してください")
