@@ -34,14 +34,14 @@ struct TakePicView<ViewModel: TakePictureViewModelType>: View {
             
             if viewModel.isVisibleRegisterButton {
                 RegisterDataButton(
-                    onRegisterClick: { }
+                    onRegisterClick: { viewModel.changeRegisterDialog() }
                 )
             }
         }
         .customDialog(isOpen: viewModel.isOpenRegisterDialog) {
             RegisterAlertDialog(
                 inputText: $viewModel.inputText,
-                onAddButtonClick: { },
+                onAddButtonClick: { viewModel.saveGrowthData() },
                 onCanselButtonClick: { viewModel.changeRegisterDialog() },
                 isRegisterable: viewModel.isRegisterable,
                 isFirstOpenDialog: viewModel.isFirstOpenRegisterDialog
@@ -49,7 +49,7 @@ struct TakePicView<ViewModel: TakePictureViewModelType>: View {
         }
         .navigationBarTitle(vegeItem.name, displayMode: .inline)
         .navigationBarItems(trailing: Button(
-            action: { viewModel.changeRegisterDialog() }, label: {
+            action: { }, label: {
                 Text(L10n.navigateManageScreenText)
             }))
         .fullScreenCover(isPresented: $viewModel.isCameraOpen) {
@@ -112,6 +112,7 @@ struct RegisterAlertDialog: View {
             TextField(L10n.noneText, text: $inputText)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(height: 30)
+                .keyboardType(.decimalPad)
             
             HStack {
                 Image(asset: Asset.Images.errorCircle)
@@ -148,10 +149,11 @@ struct TakePicView_Previews: PreviewProvider {
     
     static var previews: some View {
         let vegeList: [VegeItem] = VegeItemList().getVegeList()
+        let vegeItem = vegeList[0]
         NavigationView {
             TakePicView(
                 vegeItem: vegeList[0],
-                viewModel: TakePictureViewModel()
+                viewModel: TakePictureViewModel(vegeItem: vegeItem)
             )
         }
     }

@@ -19,6 +19,7 @@ protocol TakePictureViewModelType: ObservableObject {
     var isFirstOpenRegisterDialog: Bool { get }
     
     func changeRegisterDialog()
+    func saveGrowthData()
 }
 
 class TakePictureViewModel: TakePictureViewModelType {
@@ -36,29 +37,56 @@ class TakePictureViewModel: TakePictureViewModelType {
     
     @Published var isFirstOpenRegisterDialog: Bool = true
     
+    private let vegeItem: VegeItem
+    private var vegeRepositoryList: [VegetableRepository] = []
+    
+    private let vegeRepositoryFileManager = VegetableRepositoryFileManager()
+    private let dateManager = DateManager()
+    
     private var cancellables: Set<AnyCancellable> = []
     
-    init() {
+    init(vegeItem: VegeItem) {
+        self.vegeItem = vegeItem
+        self.vegeRepositoryList = vegeRepositoryFileManager.loadVegeRepositoryList(vegeItem: vegeItem)
+        
         bind()
     }
     
     func changeRegisterDialog() {
-        if isOpenRegisterDialog {
-            isOpenRegisterDialog = false
-            resetDialogState()
-        } else {
-            isOpenRegisterDialog = true
+        isOpenRegisterDialog = !isOpenRegisterDialog
+        resetDialogState()
+    }
+    
+    func saveGrowthData() {
+        guard let size = Double(inputText) else {
+            return
         }
+        let vegeRepository = VegetableRepository(
+            name: vegeItem.name,
+            uuid: UUID().uuidString,
+            itemUuid: vegeItem.uuid,
+            size: size,
+            memo: L10n.noneText,
+            date: dateManager.getDatetimeNow()
+        )
+        vegeRepositoryList.append(vegeRepository)
+        
+        let isSuccessSavePicture = vegeRepositoryFileManager.saveTakePicture(image: takePictureImage, vegeRepository: vegeRepository)
+        if isSuccessSavePicture {
+            vegeRepositoryFileManager.saveVegeRepositoryList(vegeRepositoryList: vegeRepositoryList, vegeItem: vegeItem)
+        }
+        changeRegisterDialog()
+        takePictureImage = nil
     }
     
     private func resetDialogState() {
         isVisibleRegisterButton = false
-        isRegisterable = false
         isFirstOpenRegisterDialog = true
         inputText = ""
     }
     
     private func bind() {
+        // 写真の状態で登録ボタンの表示切り替え
         $takePictureImage.sink { image in
             if image == nil {
                 self.isVisibleRegisterButton = false

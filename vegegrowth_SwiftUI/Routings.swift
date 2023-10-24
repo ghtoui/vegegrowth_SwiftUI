@@ -29,7 +29,7 @@ extension Rootings {
         ):
             let view = TakePicView(
                 vegeItem: vegeItem,
-                viewModel: TakePictureViewModel()
+                viewModel: TakePictureViewModel(vegeItem: vegeItem)
             )
             return AnyView(view)
         }
