@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FileManager {
+class VegeFileManager {
     private let jsonParser = JsonParser()
     
     func saveVegeList(vegeList: [VegeItem]) {
