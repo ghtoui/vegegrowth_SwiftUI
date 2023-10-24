@@ -33,7 +33,7 @@ extension HomeViewModelType {
 
 class HomeViewModel: HomeViewModelType {
     private var vegeList: [VegeItem]
-    private let fileManager = FileManager()
+    private let fileManager = VegeFileManager()
     
     @Published var sortList: [VegeItem]
     

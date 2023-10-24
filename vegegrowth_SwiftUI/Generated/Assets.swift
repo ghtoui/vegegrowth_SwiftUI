@@ -32,11 +32,14 @@ internal enum Asset {
     internal static let delete = ImageAsset(name: "delete")
     internal static let done = ImageAsset(name: "done")
     internal static let edit = ImageAsset(name: "edit")
+    internal static let errorCircle = ImageAsset(name: "error_circle")
     internal static let favorite = ImageAsset(name: "favorite")
     internal static let flower = ImageAsset(name: "flower")
     internal static let menu = ImageAsset(name: "menu")
     internal static let pending = ImageAsset(name: "pending")
+    internal static let photoCamera = ImageAsset(name: "photo_camera")
     internal static let pottedPlant = ImageAsset(name: "potted_plant")
+    internal static let registerData = ImageAsset(name: "register_data")
     internal static let sort = ImageAsset(name: "sort")
   }
 }

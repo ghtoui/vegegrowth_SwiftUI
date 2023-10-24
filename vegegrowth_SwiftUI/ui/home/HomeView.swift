@@ -13,36 +13,41 @@ struct HomeView<ViewModel: HomeViewModelType>: View {
     
     var body: some View {
         NavigationView {
-            List {
-                Section {
-                    ForEach(viewModel.sortList) { item in
-                        VegeListElement(
-                            vegeItem: item,
-                            selectedMenuStatus: viewModel.selectedMenuStatus,
-                            onDeleteButtonClick: { item in
-                                viewModel.deleteVegeItem(item: item)
-                            },
-                            onEditButtonClick: { (item, status) in
-                                viewModel.changeVegeStatus(item: item, status: status)
-                            }
-                        )
-                    }
-                    .onDelete(perform: nil)
-                } header: { HomeListHeader(
-                    onMenuIconClick: { viewModel.selectMenuStatus(selectMenuStatus: $0) },
-                    onDoneButtonClick: { viewModel.selectMenuStatus(selectMenuStatus: .none) },
-                    selectedSortStatus: viewModel.selectedSortStatus,
-                    selectedMenuStatus: viewModel.selectedMenuStatus,
-                    onSortMenuButtonClick: { viewModel.selectSortStatus(selectSortStatus: $0) }
-                )}
-            }
-            .listStyle(.plain)
-            .navigationBarTitle(L10n.homeNavigationTitle, displayMode: .inline)
-            .navigationBarItems(trailing: Button(
-                action: { viewModel.changeOpenAddDialog() },
-                label: { Text(L10n.addText) })
-            )
-            .customDialog(isOpen: viewModel.isOpenAddDialog) {
+            ScrollView {
+                LazyVStack(pinnedViews: [.sectionHeaders]) {
+                    Section {
+                        ForEach(viewModel.sortList) { item in
+                            VegeListElement(
+                                vegeItem: item,
+                                selectedMenuStatus: viewModel.selectedMenuStatus,
+                                onDeleteButtonClick: { item in
+                                    viewModel.deleteVegeItem(item: item)
+                                },
+                                onEditButtonClick: { (item, status) in
+                                    viewModel.changeVegeStatus(item: item, status: status)
+                                }
+                            )
+                            Rectangle()
+                                .foregroundColor(.gray.opacity(0.5))
+                                .frame(height: 0.5, alignment: .bottom)
+                        }
+                        .onDelete(perform: nil)
+                    } header: { HomeListHeader(
+                        onMenuIconClick: { viewModel.selectMenuStatus(selectMenuStatus: $0) },
+                        onDoneButtonClick: { viewModel.selectMenuStatus(selectMenuStatus: .none) },
+                        selectedSortStatus: viewModel.selectedSortStatus,
+                        selectedMenuStatus: viewModel.selectedMenuStatus,
+                        onSortMenuButtonClick: { viewModel.selectSortStatus(selectSortStatus: $0) }
+                    )}
+                    .padding(.horizontal, 24)
+                }
+                .listStyle(.plain)
+                .navigationBarTitle(L10n.homeNavigationTitle, displayMode: .inline)
+                .navigationBarItems(trailing: Button(
+                    action: { viewModel.changeOpenAddDialog() },
+                    label: { Text(L10n.addText) })
+                )
+            }.customDialog(isOpen: viewModel.isOpenAddDialog) {
                 AddAlertDialog(
                     selectedCategory: viewModel.selectedCategory,
                     inputText: $viewModel.inputText,
@@ -127,6 +132,7 @@ struct HomeListHeader: View {
             }
         }
         .padding(.vertical, 16)
+        .background(.white)
     }
 }
 
@@ -206,59 +212,69 @@ struct VegeListElement: View {
     let onEditButtonClick: (VegeItem, VegeStatus) -> Void
     @State var isDelete = false
     @State var isSelectedVegeStatus: VegeStatus = VegeStatus.default
+    @State private var isPresented: Bool = false
     
     var body: some View {
-        HStack {
-            if selectedMenuStatus == .delete {
-                Button(
-                    action: { isDelete = !isDelete },
-                    label: { Image(asset: Asset.Images.chevronRight)
-                            .foregroundColor(.red)
-                    })
-            }
-            Image(asset: vegeItem.category.getIcon())
-                .foregroundColor(vegeItem.category.getTint())
-            Text(vegeItem.name)
-            Image(asset: vegeItem.status.getIcon())
-                .foregroundColor(vegeItem.status.getTint())
-                .padding(.leading, 24)
-            Spacer()
-            if isDelete {
-                Button(
-                    action: { onDeleteButtonClick(vegeItem) },
-                    label: {
-                        Image(asset: Asset.Images.delete)
-                            .foregroundColor(.red)
-                    }
+        ZStack {
+            if selectedMenuStatus == .none {
+                let takePic = Rootings.takePic(vegeItem: vegeItem)
+                NavigationLink(
+                    destination: takePic.createView(),
+                    label: { Rectangle().foregroundColor(.clear) }
                 )
             }
-            if selectedMenuStatus == .edit {
-                Menu {
-                    ForEach(VegeStatus.allCases, id: \.self) { status in
-                        Button(
-                            action: {
-                                onEditButtonClick(vegeItem, status)
-                                isSelectedVegeStatus = status
-                            },
-                            label: {
-                                HStack {
-                                    Image(asset: status.getIcon())
-                                    Text(status.rawValue)
-                                }
-                            }
-                        )
-                    }
-                } label: {
-                    Image(asset: Asset.Images.edit)
+            HStack {
+                if selectedMenuStatus == .delete {
+                    Button(
+                        action: { isDelete = !isDelete },
+                        label: { Image(asset: Asset.Images.chevronRight)
+                                .foregroundColor(.red)
+                        })
                 }
-                .menuOrder(.fixed)
+                Image(asset: vegeItem.category.getIcon())
+                    .foregroundColor(vegeItem.category.getTint())
+                Text(vegeItem.name)
+                Image(asset: vegeItem.status.getIcon())
+                    .foregroundColor(vegeItem.status.getTint())
+                    .padding(.leading, 24)
+                Spacer()
+                if isDelete {
+                    Button(
+                        action: { onDeleteButtonClick(vegeItem) },
+                        label: {
+                            Image(asset: Asset.Images.delete)
+                                .foregroundColor(.red)
+                        }
+                    )
+                }
+                if selectedMenuStatus == .edit {
+                    Menu {
+                        ForEach(VegeStatus.allCases, id: \.self) { status in
+                            Button(
+                                action: {
+                                    onEditButtonClick(vegeItem, status)
+                                    isSelectedVegeStatus = status
+                                },
+                                label: {
+                                    HStack {
+                                        Image(asset: status.getIcon())
+                                        Text(status.rawValue)
+                                    }
+                                }
+                            )
+                        }
+                    } label: {
+                        Image(asset: Asset.Images.edit)
+                    }
+                    .menuOrder(.fixed)
+                }
             }
-        }
-        .frame(height: 40)
-        // 値の変更を検知させる
-        .onChange(of: selectedMenuStatus) { menuStatus in
-            if menuStatus != .delete {
-                isDelete = false
+            .frame(height: 40)
+            // 値の変更を検知させる
+            .onChange(of: selectedMenuStatus) { menuStatus in
+                if menuStatus != .delete {
+                    isDelete = false
+                }
             }
         }
     }

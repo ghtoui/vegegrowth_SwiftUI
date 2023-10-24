@@ -27,6 +27,8 @@ internal enum L10n {
   internal static let categoryNone = L10n.tr("Localizable", "category_none", fallback: "カテゴリーを選択してください")
   /// 分類なし
   internal static let categoryOther = L10n.tr("Localizable", "category_other", fallback: "分類なし")
+  /// yyyy-MM-dd HH:mm:ss
+  internal static let dateFormat = L10n.tr("Localizable", "dateFormat", fallback: "yyyy-MM-dd HH:mm:ss")
   /// 選択した項目を削除
   internal static let deleteModeTitle = L10n.tr("Localizable", "delete_mode_title", fallback: "選択した項目を削除")
   /// 削除
@@ -37,14 +39,31 @@ internal enum L10n {
   internal static let editText = L10n.tr("Localizable", "edit_text", fallback: "編集")
   /// 一覧画面
   internal static let homeNavigationTitle = L10n.tr("Localizable", "home_navigation_title", fallback: "一覧画面")
+  /// ja_JP
+  internal static let japanIdentifier = L10n.tr("Localizable", "japan_identifier", fallback: "ja_JP")
+  /// .jpeg
+  internal static let jpegExtension = L10n.tr("Localizable", "jpeg_extension", fallback: ".jpeg")
+  /// 管理画面へ
+  internal static let navigateManageScreenText = L10n.tr("Localizable", "navigate_manage_screen_text", fallback: "管理画面へ")
   /// 
   internal static let noneText = L10n.tr("Localizable", "none_text", fallback: "")
+  /// ここに撮影した画像が表示されます
+  internal static let pictureNoneText = L10n.tr("Localizable", "picture_none_text", fallback: "ここに撮影した画像が表示されます")
+  /// 登録する
+  internal static let registerDataButtonText = L10n.tr("Localizable", "register_data_button_text", fallback: "登録する")
+  /// 正しい数値を入力してください
+  internal static let registerDialogErrorText = L10n.tr("Localizable", "register_dialog_error_text", fallback: "正しい数値を入力してください")
+  /// 撮影した写真の大きさを
+  /// 入力してください
+  internal static let registerDialogTitile = L10n.tr("Localizable", "register_dialog_titile", fallback: "撮影した写真の大きさを\n入力してください")
   /// 選択なし
   internal static let statusDefault = L10n.tr("Localizable", "status_default", fallback: "選択なし")
   /// 生育終了
   internal static let statusEnd = L10n.tr("Localizable", "status_end", fallback: "生育終了")
   /// お気に入り
   internal static let statusFavorite = L10n.tr("Localizable", "status_favorite", fallback: "お気に入り")
+  /// 撮影する
+  internal static let takePhotoButtonText = L10n.tr("Localizable", "take_photo_button_text", fallback: "撮影する")
   /// vegeItemList
   internal static let userDefaultVegeItemList = L10n.tr("Localizable", "user_default_vege_item_list", fallback: "vegeItemList")
 }
