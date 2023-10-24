@@ -23,7 +23,7 @@ protocol TakePictureViewModelType: ObservableObject {
 }
 
 class TakePictureViewModel: TakePictureViewModelType {
-    @Published var inputText: String = ""
+    @Published var inputText: String = L10n.noneText
     
     @Published var isOpenRegisterDialog: Bool = false
     
@@ -80,9 +80,8 @@ class TakePictureViewModel: TakePictureViewModelType {
     }
     
     private func resetDialogState() {
-        isVisibleRegisterButton = false
         isFirstOpenRegisterDialog = true
-        inputText = ""
+        inputText = L10n.noneText
     }
     
     private func bind() {
