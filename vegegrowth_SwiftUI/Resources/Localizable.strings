@@ -25,3 +25,6 @@
 "register_dialog_titile" = "撮影した写真の大きさを\n入力してください";
 "navigate_manage_screen_text" = "管理画面へ";
 "register_dialog_error_text" = "正しい数値を入力してください";
+"dateFormat" = "yyyy-MM-dd HH:mm:ss";
+"japan_identifier" = "ja_JP";
+"jpeg_extension" = ".jpeg";
