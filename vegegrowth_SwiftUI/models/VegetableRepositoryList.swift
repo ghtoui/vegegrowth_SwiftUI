@@ -45,6 +45,13 @@ struct VegetableRepositoryList {
                 size: 1,
                 memo: "5",
                 date: "2023-10-14 10:10:10"),
+            VegetableRepository(
+                name: "mikan",
+                uuid: UUID().uuidString,
+                itemUuid: UUID().uuidString,
+                size: 30,
+                memo: "30",
+                date: "2023-11-14 10:10:10")
         ]
         return vegeRepoList
     }

@@ -12,12 +12,14 @@ import Charts
 struct ManageView: View {
     let vegeItem: VegeItem
     let vegeRepositoryList: [VegetableRepository]
+    @State var currentIndex = 0
     
     var body: some View {
-        VStack {
+        VStack(spacing: 32) {
             PlotCharts(data: vegeRepositoryList)
-            ImageCoroucel()
-            MemoView()
+                .padding(.horizontal, 16)
+            ImageCoroucel(currentIndex: $currentIndex)
+            MemoView(memo: vegeRepositoryList[currentIndex].memo)
         }
         .navigationBarTitle(vegeItem.name, displayMode: .inline)
     }
@@ -25,14 +27,17 @@ struct ManageView: View {
 
 struct PlotCharts: View {
     @State var data: [VegetableRepository]
+    private let dateManager = DateManager()
     var body: some View {
         Chart(data) { element in
             LineMark(
-                x: .value("", element.date),
+                x: .value("", dateManager.transDateFromString(dateText: element.date)!),
                 y: .value("", element.size)
             )
         }
-        .padding(.top, 16)
+        .chartYAxis {
+            AxisMarks(position: .leading)
+        }
     }
 }
 
@@ -47,7 +52,7 @@ struct ImageCoroucel: View {
         Asset.Images.photoCamera,
         Asset.Images.menu
     ]
-    @State private var currentIndex = 0
+    @Binding var currentIndex: Int
     let itemPadding: CGFloat = 20
     @GestureState private var dragOffset: CGFloat = 0
     
@@ -73,7 +78,7 @@ struct ImageCoroucel: View {
             // ドラッグした分だけoffsetを移動
             .offset(x: self.dragOffset)
             // currentIndexに応じたoffsetへ移動する
-            .offset(x: -CGFloat(self.currentIndex) * (bodyView.size.width * 0.8 + itemPadding))
+            .offset(x: -CGFloat(currentIndex) * (bodyView.size.width * 0.8 + itemPadding))
             .gesture(
                 DragGesture()
                     .updating(self.$dragOffset, body: { (value, state, _) in
@@ -81,7 +86,7 @@ struct ImageCoroucel: View {
                         state = value.translation.width
                     })
                     .onEnded({ value in
-                        var newIndex = self.currentIndex
+                        var newIndex = currentIndex
                         // ドラッグ幅からページングを判定
                         let percent = 0.3
                         if abs(value.translation.width) > bodyView.size.width * percent {
@@ -94,7 +99,7 @@ struct ImageCoroucel: View {
                         } else if newIndex > (self.imageList.count - 1) {
                             newIndex = self.imageList.count - 1
                         }
-                        self.currentIndex = newIndex
+                        currentIndex = newIndex
                     })
             )
             .animation(.linear, value: 150)
@@ -103,11 +108,12 @@ struct ImageCoroucel: View {
 }
 
 struct MemoView: View {
+    @State var memo: String
     var body: some View {
         ZStack {
             Rectangle()
                 .foregroundColor(.white)
-            Text("メモ")
+            Text(memo)
         }
     }
 }
