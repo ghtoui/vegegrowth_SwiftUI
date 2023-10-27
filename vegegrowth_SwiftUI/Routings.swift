@@ -12,6 +12,7 @@ import Foundation
 enum Rootings {
     case home(vegeList: [VegeItem])
     case takePic(vegeItem: VegeItem)
+    case manage(vegeItem: VegeItem, vegeRepositoryList: [VegetableRepository])
 }
 
 extension Rootings {
@@ -30,6 +31,16 @@ extension Rootings {
             let view = TakePicView(
                 vegeItem: vegeItem,
                 viewModel: TakePictureViewModel(vegeItem: vegeItem)
+            )
+            return AnyView(view)
+            
+        case .manage(
+            let vegeItem,
+            let vegeRepositoryList
+        ):
+            let view = ManageView(
+                vegeItem: vegeItem,
+                vegeRepositoryList: vegeRepositoryList
             )
             return AnyView(view)
         }

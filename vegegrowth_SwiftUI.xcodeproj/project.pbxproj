@@ -35,6 +35,8 @@
 		86728A802AE7641200D12933 /* VegetableRepositoryFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86728A7F2AE7641200D12933 /* VegetableRepositoryFileManager.swift */; };
 		86728A822AE7658E00D12933 /* VegetableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86728A812AE7658E00D12933 /* VegetableRepository.swift */; };
 		86728A842AE785B000D12933 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86728A832AE785B000D12933 /* DateManager.swift */; };
+		86728A872AE91D1100D12933 /* ManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86728A862AE91D1100D12933 /* ManageView.swift */; };
+		86728A892AEBB55600D12933 /* VegetableRepositoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86728A882AEBB55600D12933 /* VegetableRepositoryList.swift */; };
 		86E231642AE0F4950067C16A /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231632AE0F4950067C16A /* JsonParser.swift */; };
 		86E231662AE102BD0067C16A /* VegeFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E231652AE102BD0067C16A /* VegeFileManager.swift */; };
 /* End PBXBuildFile section */
@@ -89,6 +91,8 @@
 		86728A7F2AE7641200D12933 /* VegetableRepositoryFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegetableRepositoryFileManager.swift; sourceTree = "<group>"; };
 		86728A812AE7658E00D12933 /* VegetableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegetableRepository.swift; sourceTree = "<group>"; };
 		86728A832AE785B000D12933 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		86728A862AE91D1100D12933 /* ManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageView.swift; sourceTree = "<group>"; };
+		86728A882AEBB55600D12933 /* VegetableRepositoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegetableRepositoryList.swift; sourceTree = "<group>"; };
 		86E231632AE0F4950067C16A /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		86E231652AE102BD0067C16A /* VegeFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegeFileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +125,7 @@
 		860EE1AC2AD19C790051FEA3 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				86728A852AE91D0300D12933 /* manage */,
 				861693422AD4D00D0078DF61 /* takepicture */,
 				860EE1AD2AD19C790051FEA3 /* home */,
 				86728A792AE26F8800D12933 /* Camera.swift */,
@@ -149,6 +154,7 @@
 				86E231632AE0F4950067C16A /* JsonParser.swift */,
 				86E231652AE102BD0067C16A /* VegeFileManager.swift */,
 				86728A7F2AE7641200D12933 /* VegetableRepositoryFileManager.swift */,
+				86728A882AEBB55600D12933 /* VegetableRepositoryList.swift */,
 				86728A812AE7658E00D12933 /* VegetableRepository.swift */,
 				86728A832AE785B000D12933 /* DateManager.swift */,
 			);
@@ -244,6 +250,14 @@
 				861CABC12AD1428A0001519C /* vegegrowth_SwiftUITests.swift */,
 			);
 			path = vegegrowth_SwiftUITests;
+			sourceTree = "<group>";
+		};
+		86728A852AE91D0300D12933 /* manage */ = {
+			isa = PBXGroup;
+			children = (
+				86728A862AE91D1100D12933 /* ManageView.swift */,
+			);
+			path = manage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86728A842AE785B000D12933 /* DateManager.swift in Sources */,
+				86728A892AEBB55600D12933 /* VegetableRepositoryList.swift in Sources */,
 				8616933E2AD3C2330078DF61 /* MenuStatus.swift in Sources */,
 				863669D22AD19D0F005FEF71 /* VegeItem.swift in Sources */,
 				86728A822AE7658E00D12933 /* VegetableRepository.swift in Sources */,
@@ -404,6 +419,7 @@
 				861CABAD2AD142890001519C /* SceneDelegate.swift in Sources */,
 				86728A7A2AE26F8800D12933 /* Camera.swift in Sources */,
 				86E231662AE102BD0067C16A /* VegeFileManager.swift in Sources */,
+				86728A872AE91D1100D12933 /* ManageView.swift in Sources */,
 				86728A802AE7641200D12933 /* VegetableRepositoryFileManager.swift in Sources */,
 				8616933B2AD29CD80078DF61 /* CustomDialog.swift in Sources */,
 				863669D82AD1A20B005FEF71 /* VegeItemList.swift in Sources */,
