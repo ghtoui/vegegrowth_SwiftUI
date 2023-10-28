@@ -112,8 +112,14 @@ struct MemoView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(.white)
-            Text(memo)
+                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .foregroundColor(.red)
+                .padding(16)
+            ScrollView {
+                Text("aaa\na\na\na\na\na\n")
+                    .padding(16)
+            }
+                .padding(16)
         }
     }
 }
@@ -127,5 +133,13 @@ struct ManagePreview: PreviewProvider {
         NavigationView {
             ManageView(vegeItem: vegeItem, vegeRepositoryList: data)
         }
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
+            .previewDisplayName("iPhone 14 Pro homeview")
+        
+        NavigationView {
+            ManageView(vegeItem: vegeItem, vegeRepositoryList: data)
+        }
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+            .previewDisplayName("iPhone SE homeview")
     }
 }
