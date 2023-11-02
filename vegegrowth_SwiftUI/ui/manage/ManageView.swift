@@ -9,43 +9,43 @@ import Foundation
 import SwiftUI
 import Charts
 
-struct ManageView: View {
-    let vegeItem: VegeItem
-    @State var vegeRepositoryList: [VegetableRepository]
-    @State var currentIndex = 0
+struct ManageView<ViewModel: ManageViewModelType>: View {
+    @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         GeometryReader { geo in
             VStack(spacing: 32) {
                 PlotCharts(
-                    data: vegeRepositoryList,
-                    currentIndex: currentIndex
+                    sizeData: viewModel.sizeData,
+                    dateData: viewModel.dateData,
+                    currentIndex: $viewModel.currentIndex
                 )
                     .padding(.horizontal, 16)
-                ImageCoroucel(currentIndex: $currentIndex)
+                ImageCoroucel(currentIndex: $viewModel.currentIndex)
                     .frame(height: geo.size.height * 0.35)
-                MemoView(memo: vegeRepositoryList[currentIndex].memo)
+                MemoView(memo: $viewModel.memo)
                     .frame(height: geo.size.height * 0.2)
             }
-            .navigationBarTitle(vegeItem.name, displayMode: .inline)
+            .navigationBarTitle(viewModel.title, displayMode: .inline)
         }
     }
 }
 
 struct PlotCharts: View {
-    @State var data: [VegetableRepository]
-    @State var currentIndex: Int
+    @State var sizeData: [Double]
+    @State var dateData: [Date]
+    @Binding var currentIndex: Int
+    
     private let dateManager = DateManager()
     var body: some View {
-        let currentElement = data[currentIndex]
-        Chart(data) { element in
+        Chart(Array(zip(sizeData, dateData)), id: \.0) { size, date in
             LineMark(
-                x: .value(L10n.noneText, dateManager.transDateFromString(dateText: element.date)!),
-                y: .value(L10n.noneText, element.size)
+                x: .value(L10n.noneText, date),
+                y: .value(L10n.noneText, size)
             )
             PointMark(
-                x: .value(L10n.noneText, dateManager.transDateFromString(dateText: currentElement.date)!),
-                y: .value(L10n.noneText, currentElement.size)
+                x: .value(L10n.noneText, dateData[currentIndex]),
+                y: .value(L10n.noneText, sizeData[currentIndex])
             )
         }
         .chartYAxis {
@@ -139,7 +139,8 @@ struct ImageCoroucel: View {
 }
 
 struct MemoView: View {
-    @State var memo: String
+    @Binding var memo: String
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -165,13 +166,23 @@ struct ManagePreview: PreviewProvider {
         let data = VegetableRepositoryList().getVegeRepositoryList()
         
         NavigationView {
-            ManageView(vegeItem: vegeItem, vegeRepositoryList: data)
+            ManageView(
+                viewModel: ManageViewModel(
+                    vegeItem: vegeItem,
+                    vegeRepositoryList: data
+                )
+            )
         }
         .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
         .previewDisplayName("iPhone 14 Pro homeview")
         
         NavigationView {
-            ManageView(vegeItem: vegeItem, vegeRepositoryList: data)
+            ManageView(
+                viewModel: ManageViewModel(
+                    vegeItem: vegeItem,
+                    vegeRepositoryList: data
+                )
+            )
         }
         .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
         .previewDisplayName("iPhone SE homeview")

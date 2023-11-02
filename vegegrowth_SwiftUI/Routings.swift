@@ -39,8 +39,10 @@ extension Rootings {
             let vegeRepositoryList
         ):
             let view = ManageView(
-                vegeItem: vegeItem,
-                vegeRepositoryList: vegeRepositoryList
+                viewModel: ManageViewModel(
+                    vegeItem: vegeItem,
+                    vegeRepositoryList: vegeRepositoryList
+                )
             )
             return AnyView(view)
         }
