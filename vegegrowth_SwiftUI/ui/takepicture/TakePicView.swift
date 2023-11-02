@@ -48,10 +48,13 @@ struct TakePicView<ViewModel: TakePictureViewModelType>: View {
             )
         }
         .navigationBarTitle(vegeItem.name, displayMode: .inline)
-        .navigationBarItems(trailing: Button(
-            action: { }, label: {
-                Text(L10n.navigateManageScreenText)
-            }))
+        .navigationBarItems(trailing: NavigationLink(
+            destination: {
+                let manageView = Rootings.manage(vegeItem: vegeItem, vegeRepositoryList: VegetableRepositoryList().getVegeRepositoryList())
+                manageView.createView()
+            },
+            label: { Text(L10n.navigateManageScreenText) }
+        ))
         .fullScreenCover(isPresented: $viewModel.isCameraOpen) {
             CameraView(image: $viewModel.takePictureImage).ignoresSafeArea()
         }
